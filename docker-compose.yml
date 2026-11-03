@@ -1,0 +1,136 @@
+name: repoguard
+x-isolation: &isolation
+  init: true
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  restart: unless-stopped
+  pids_limit: 128
+
+x-worker-env: &worker-env
+  SPRING_AUTOCONFIGURE_EXCLUDE: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration
+  REPOGUARD_MAX_ARCHIVE_BYTES: ${REPOGUARD_MAX_ARCHIVE_BYTES:-209715200}
+  REPOGUARD_MAX_EXPANDED_BYTES: ${REPOGUARD_MAX_EXPANDED_BYTES:-524288000}
+  REPOGUARD_MAX_SINGLE_FILE_BYTES: ${REPOGUARD_MAX_SINGLE_FILE_BYTES:-10485760}
+  REPOGUARD_MAX_FILES: ${REPOGUARD_MAX_FILES:-25000}
+  REPOGUARD_MAX_ZIP_DEPTH: ${REPOGUARD_MAX_ZIP_DEPTH:-16}
+  REPOGUARD_MAX_COMPRESSION_RATIO: ${REPOGUARD_MAX_COMPRESSION_RATIO:-100}
+  REPOGUARD_SCANNER_TIMEOUT: ${REPOGUARD_SCANNER_TIMEOUT:-PT10M}
+  REPOGUARD_MALWARE_TIMEOUT: ${REPOGUARD_MALWARE_TIMEOUT:-PT3M}
+  REPOGUARD_MAX_FINDINGS: ${REPOGUARD_MAX_FINDINGS:-10000}
+
+services:
+  postgres:
+    image: postgres:16.11-alpine
+    environment:
+      POSTGRES_DB: repoguard
+      POSTGRES_USER: repoguard
+      POSTGRES_PASSWORD: ${REPOGUARD_DB_PASSWORD:?Copy .env.example to .env and set a database password}
+    volumes: [repoguard-postgres:/var/lib/postgresql/data]
+    networks: [database]
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U repoguard -d repoguard]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+    mem_limit: 512m
+
+  backend:
+    <<: *isolation
+    build: {context: ./backend, target: runtime}
+    environment:
+      REPOGUARD_ROLE: api
+      REPOGUARD_DB_URL: jdbc:postgresql://postgres:5432/repoguard
+      REPOGUARD_DB_PASSWORD: ${REPOGUARD_DB_PASSWORD}
+      REPOGUARD_PUBLIC_BASE_URL: ${REPOGUARD_PUBLIC_BASE_URL:-http://localhost:8088}
+      REPOGUARD_FRONTEND_ORIGIN: ${REPOGUARD_FRONTEND_ORIGIN:-http://localhost:8088}
+      REPOGUARD_MAX_ARCHIVE_BYTES: ${REPOGUARD_MAX_ARCHIVE_BYTES:-209715200}
+      REPOGUARD_MAX_UPLOAD: ${REPOGUARD_MAX_UPLOAD:-200MB}
+      REPOGUARD_DOWNLOAD_TIMEOUT: ${REPOGUARD_DOWNLOAD_TIMEOUT:-PT2M}
+      REPOGUARD_SCANNER_TIMEOUT: ${REPOGUARD_SCANNER_TIMEOUT:-PT10M}
+      REPOGUARD_MAX_FINDINGS: ${REPOGUARD_MAX_FINDINGS:-10000}
+    depends_on:
+      postgres: {condition: service_healthy}
+      worker: {condition: service_healthy}
+      updater: {condition: service_healthy}
+    tmpfs:
+      - /tmp:noexec,nosuid,nodev,size=256m,uid=10001,gid=10001,mode=0700
+      - /app/var/quarantine:noexec,nosuid,nodev,size=256m,uid=10001,gid=10001,mode=0700
+      - /app/var/work:noexec,nosuid,nodev,size=16m,uid=10001,gid=10001,mode=0700
+    networks: [web, database, scanning, updating]
+    mem_limit: 768m
+    cpus: 1.5
+    healthcheck:
+      test: [CMD, curl, -fsS, http://localhost:8080/api/health]
+      interval: 10s
+      timeout: 10s
+      start_period: 40s
+      retries: 10
+
+  worker:
+    <<: *isolation
+    build: {context: ./backend, target: scanner}
+    environment:
+      <<: *worker-env
+      REPOGUARD_ROLE: worker
+    volumes: [repoguard-signatures:/signatures:ro, repoguard-scanner-cache:/scanner-cache]
+    tmpfs:
+      - /tmp:noexec,nosuid,nodev,size=64m,uid=10001,gid=10001,mode=0700
+      - /app/var/work:noexec,nosuid,nodev,size=768m,uid=10001,gid=10001,mode=0700
+    networks: [scanning]
+    mem_limit: 2g
+    cpus: 2.0
+    healthcheck:
+      test: [CMD, curl, -fsS, http://localhost:8080/internal/health]
+      interval: 10s
+      timeout: 5s
+      start_period: 40s
+      retries: 10
+
+  updater:
+    <<: *isolation
+    build: {context: ./backend, target: scanner}
+    environment:
+      <<: *worker-env
+      REPOGUARD_ROLE: updater
+    volumes: [repoguard-signatures:/signatures]
+    tmpfs:
+      - /tmp:noexec,nosuid,nodev,size=128m,uid=10001,gid=10001,mode=0700
+    networks: [updating, updates-egress]
+    mem_limit: 2g
+    cpus: 1.0
+    healthcheck:
+      test: [CMD, curl, -fsS, http://localhost:8080/internal/health]
+      interval: 10s
+      timeout: 5s
+      start_period: 40s
+      retries: 10
+
+  frontend:
+    <<: *isolation
+    build: ./frontend
+    ports: ["${REPOGUARD_HTTP_PORT:-8088}:8080"]
+    depends_on:
+      backend: {condition: service_healthy}
+    tmpfs:
+      - /tmp:noexec,nosuid,nodev,size=32m,uid=101,gid=101
+    networks: [web]
+    mem_limit: 128m
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, http://127.0.0.1:8080/]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+networks:
+  web:
+  database: {internal: true}
+  scanning: {internal: true}
+  updating: {internal: true}
+  updates-egress:
+volumes:
+  repoguard-postgres:
+  repoguard-signatures:
+  repoguard-scanner-cache:

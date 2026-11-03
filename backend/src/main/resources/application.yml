@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: RepoGuard
+  datasource:
+    url: ${REPOGUARD_DB_URL:jdbc:postgresql://localhost:5432/repoguard}
+    username: ${REPOGUARD_DB_USER:repoguard}
+    password: ${REPOGUARD_DB_PASSWORD:repoguard}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+  servlet:
+    multipart:
+      file-size-threshold: 0B
+      location: /tmp
+      max-file-size: ${REPOGUARD_MAX_UPLOAD:200MB}
+      max-request-size: ${REPOGUARD_MAX_UPLOAD:200MB}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+server:
+  port: ${REPOGUARD_BACKEND_PORT:8080}
+  error:
+    include-message: never
+    include-stacktrace: never
+  tomcat:
+    max-swallow-size: 1MB
+    connection-timeout: 60s
+repoguard:
+  role: ${REPOGUARD_ROLE:api}
+  public-base-url: ${REPOGUARD_PUBLIC_BASE_URL:http://localhost:8088}
+  allowed-origins:
+    - ${REPOGUARD_FRONTEND_ORIGIN:http://localhost:8088}
+  worker-url: ${REPOGUARD_WORKER_URL:http://worker:8080}
+  updater-url: ${REPOGUARD_UPDATER_URL:http://updater:8080}
+  storage:
+    quarantine-dir: ${REPOGUARD_QUARANTINE_DIR:./var/quarantine}
+    work-dir: ${REPOGUARD_WORK_DIR:./var/work}
+    report-dir: ${REPOGUARD_REPORT_DIR:./var/reports}
+  import-limits:
+    max-archive-bytes: ${REPOGUARD_MAX_ARCHIVE_BYTES:209715200}
+    max-expanded-bytes: ${REPOGUARD_MAX_EXPANDED_BYTES:524288000}
+    max-single-file-bytes: ${REPOGUARD_MAX_SINGLE_FILE_BYTES:10485760}
+    max-files: ${REPOGUARD_MAX_FILES:25000}
+    max-zip-depth: ${REPOGUARD_MAX_ZIP_DEPTH:16}
+    max-compression-ratio: ${REPOGUARD_MAX_COMPRESSION_RATIO:100}
+    download-timeout: ${REPOGUARD_DOWNLOAD_TIMEOUT:PT2M}
+    scanner-timeout: ${REPOGUARD_SCANNER_TIMEOUT:PT10M}
+  security:
+    malware-scan-required: ${REPOGUARD_MALWARE_SCAN_REQUIRED:true}
+    block-private-networks: true
+    allow-scanner-network: false
