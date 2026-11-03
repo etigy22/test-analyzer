@@ -1,0 +1,9 @@
+format: json
+quiet: true
+offline-scan: true
+skip-db-update: true
+skip-java-db-update: true
+scan:
+  scanners:
+    - vuln
+    - secret

@@ -1,0 +1,35 @@
+{
+    "testId":  "REAL-09",
+    "requirementRefs":  [
+                            "IMP-01",
+                            "IMP-07",
+                            "IMP-11",
+                            "IMP-14",
+                            "LANG-13",
+                            "LANG-14",
+                            "LANG-15",
+                            "ANA-06",
+                            "ANA-09",
+                            "DATA-01",
+                            "E2E-02",
+                            "LANG-09"
+                        ],
+    "repository":  "https://github.com/square/okio",
+    "expectedLanguage":  "Kotlin",
+    "expectedTools":  [
+                          "detekt",
+                          "Semgrep",
+                          "Trivy"
+                      ],
+    "startedAt":  "2026-11-02T16:35:54.9519942Z",
+    "completedAt":  "2026-11-02T16:35:56.0196153Z",
+    "status":  "FAIL",
+    "scanId":  null,
+    "scanStatus":  null,
+    "failureCode":  null,
+    "failureMessage":  "Local API request failed; inspect application health and per-job status.",
+    "expected":  "Original import reaches static analysis; expected language detected; applicable managed scanners complete. Failures, skipped content and finding limits remain recorded. Real project probes do not replace seeded per-language acceptance fixtures.",
+    "testedVersion":  "repoguard-source-2026.11.02.3",
+    "environment":  "Windows Docker Desktop; local Compose stack, private offline worker, PostgreSQL",
+    "evidence":  "REAL-09.json"
+}

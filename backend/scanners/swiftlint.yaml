@@ -1,0 +1,9 @@
+only_rules:
+  - force_try
+  - force_cast
+  - force_unwrapping
+  - empty_count
+  - vertical_whitespace
+  - colon
+  - comma
+  - trailing_whitespace

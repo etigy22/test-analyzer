@@ -1,0 +1,35 @@
+{
+    "testId":  "REAL-03",
+    "requirementRefs":  [
+                            "IMP-01",
+                            "IMP-07",
+                            "IMP-11",
+                            "IMP-14",
+                            "LANG-13",
+                            "LANG-14",
+                            "LANG-15",
+                            "ANA-06",
+                            "ANA-09",
+                            "DATA-01",
+                            "E2E-02",
+                            "LANG-03"
+                        ],
+    "repository":  "https://github.com/BurntSushi/ripgrep",
+    "expectedLanguage":  "Rust",
+    "expectedTools":  [
+                          "rustfmt",
+                          "Semgrep",
+                          "Trivy"
+                      ],
+    "startedAt":  "2026-11-02T14:46:20.0274504Z",
+    "completedAt":  "2026-11-02T14:46:47.2927867Z",
+    "status":  "FAIL",
+    "scanId":  "a79dbe9d-940a-4af7-82ae-9aaa0e09d0f7",
+    "scanStatus":  "FAILED",
+    "failureCode":  "ZIP_SPECIAL_FILE",
+    "failureMessage":  "Symbolic links must resolve to an existing regular archive file.",
+    "expected":  "Original import reaches static analysis; expected language detected; applicable managed scanners complete. Failures, skipped content and finding limits remain recorded. Real project probes do not replace seeded per-language acceptance fixtures.",
+    "testedVersion":  "repoguard-source-2026.11.02.2",
+    "environment":  "Windows Docker Desktop; local Compose stack, private offline worker, PostgreSQL",
+    "evidence":  "REAL-03.json"
+}

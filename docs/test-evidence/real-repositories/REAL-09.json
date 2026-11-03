@@ -1,0 +1,295 @@
+{
+    "testId":  "REAL-09",
+    "requirementRefs":  [
+                            "IMP-01",
+                            "IMP-07",
+                            "IMP-11",
+                            "IMP-14",
+                            "LANG-13",
+                            "LANG-14",
+                            "LANG-15",
+                            "ANA-06",
+                            "ANA-09",
+                            "DATA-01",
+                            "E2E-02",
+                            "LANG-09"
+                        ],
+    "repository":  "https://github.com/square/okio",
+    "expectedLanguage":  "Kotlin",
+    "expectedTools":  [
+                          "detekt",
+                          "Semgrep",
+                          "Trivy"
+                      ],
+    "startedAt":  "2026-11-02T14:54:51.5709548Z",
+    "completedAt":  "2026-11-02T14:55:55.1606837Z",
+    "status":  "FAIL",
+    "scanId":  "22a42ecd-88de-412a-a5a9-675757a27db8",
+    "scanStatus":  "PARTIAL",
+    "failureCode":  null,
+    "failureMessage":  null,
+    "archiveSha256":  "e367771aafea1c8d7c2e321e23c4bb01f9424f95a2b76208e7ea8a2431675743",
+    "archiveBytes":  1473947,
+    "rulesVersion":  "repoguard-source-2026.11.02.2",
+    "malwareDataVersion":  "577d84ab-869e-4530-ac30-138cce8270f6",
+    "truncated":  true,
+    "durationMillis":  31440,
+    "findingCount":  1000,
+    "languages":  [
+                      {
+                          "name":  "Unknown",
+                          "files":  82,
+                          "bytes":  1811537
+                      },
+                      {
+                          "name":  "Kotlin",
+                          "files":  327,
+                          "bytes":  1741108
+                      },
+                      {
+                          "name":  "Java",
+                          "files":  28,
+                          "bytes":  91626
+                      },
+                      {
+                          "name":  "C/C++",
+                          "files":  2,
+                          "bytes":  8349
+                      }
+                  ],
+    "coverage":  [
+                     {
+                         "language":  "Unknown",
+                         "tool":  "RepoGuard",
+                         "check":  "Language-specific rules",
+                         "status":  "UNSUPPORTED",
+                         "reason":  "Only generic text checks apply to unknown file types.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     },
+                     {
+                         "language":  "Kotlin",
+                         "tool":  "RepoGuard",
+                         "check":  "SECURITY",
+                         "status":  "COMPLETED",
+                         "reason":  "Bundled language-specific text rules ran. No syntax, type or interprocedural data-flow analysis.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     },
+                     {
+                         "language":  "Kotlin",
+                         "tool":  "RepoGuard",
+                         "check":  "QUALITY",
+                         "status":  "COMPLETED",
+                         "reason":  "Bundled language-specific text rules ran. No syntax, type or interprocedural data-flow analysis.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     },
+                     {
+                         "language":  "Kotlin",
+                         "tool":  "RepoGuard",
+                         "check":  "Compiler/build-dependent analysis",
+                         "status":  "UNSUPPORTED",
+                         "reason":  "Checks requiring target compilation, dependency installation or executable project plugins are prohibited.",
+                         "version":  null
+                     },
+                     {
+                         "language":  "Java",
+                         "tool":  "RepoGuard",
+                         "check":  "SECURITY",
+                         "status":  "COMPLETED",
+                         "reason":  "Bundled language-specific text rules ran. No syntax, type or interprocedural data-flow analysis.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     },
+                     {
+                         "language":  "Java",
+                         "tool":  "RepoGuard",
+                         "check":  "QUALITY",
+                         "status":  "COMPLETED",
+                         "reason":  "Bundled language-specific text rules ran. No syntax, type or interprocedural data-flow analysis.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     },
+                     {
+                         "language":  "Java",
+                         "tool":  "RepoGuard",
+                         "check":  "Compiler/build-dependent analysis",
+                         "status":  "UNSUPPORTED",
+                         "reason":  "Checks requiring target compilation, dependency installation or executable project plugins are prohibited.",
+                         "version":  null
+                     },
+                     {
+                         "language":  "C/C++",
+                         "tool":  "RepoGuard",
+                         "check":  "SECURITY",
+                         "status":  "COMPLETED",
+                         "reason":  "Bundled language-specific text rules ran. No syntax, type or interprocedural data-flow analysis.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     },
+                     {
+                         "language":  "C/C++",
+                         "tool":  "RepoGuard",
+                         "check":  "QUALITY",
+                         "status":  "COMPLETED",
+                         "reason":  "Bundled language-specific text rules ran. No syntax, type or interprocedural data-flow analysis.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     },
+                     {
+                         "language":  "C/C++",
+                         "tool":  "RepoGuard",
+                         "check":  "Compiler/build-dependent analysis",
+                         "status":  "UNSUPPORTED",
+                         "reason":  "Checks requiring target compilation, dependency installation or executable project plugins are prohibited.",
+                         "version":  null
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "RepoGuard",
+                         "check":  "Secrets and configuration",
+                         "status":  "COMPLETED",
+                         "reason":  "Bounded text patterns; all stored literals and sensitive assignments are masked.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "RepoGuard",
+                         "check":  "Offline dependency advisories",
+                         "status":  "COMPLETED",
+                         "reason":  "Small bundled advisory set for exact npm, pip and Maven versions only. Other ecosystems, version ranges, transitive resolution and comprehensive CVE coverage are UNSUPPORTED.",
+                         "version":  "curated-2026.10.29.1"
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "RepoGuard",
+                         "check":  "Unread source content",
+                         "status":  "SKIPPED",
+                         "reason":  "27 files were binary, not UTF-8, or larger than the configured text limit.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "ClamAV",
+                         "check":  "Mandatory malware pre-scan",
+                         "status":  "COMPLETED",
+                         "reason":  "Signed local signatures were used. This is not a guarantee of malware freedom.",
+                         "version":  "577d84ab-869e-4530-ac30-138cce8270f6"
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "Semgrep",
+                         "check":  "Managed AST security rules",
+                         "status":  "COMPLETED",
+                         "reason":  "Managed configuration; static, offline invocation. Repository plugins and configuration were not loaded.",
+                         "version":  "1.140.0"
+                     },
+                     {
+                         "language":  "Kotlin",
+                         "tool":  "detekt",
+                         "check":  "QUALITY",
+                         "status":  "COMPLETED",
+                         "reason":  "Managed configuration; static, offline invocation. Repository plugins and configuration were not loaded.",
+                         "version":  "1.23.8"
+                     },
+                     {
+                         "language":  "Java",
+                         "tool":  "Checkstyle",
+                         "check":  "QUALITY",
+                         "status":  "COMPLETED",
+                         "reason":  "Managed configuration; static, offline invocation. Repository plugins and configuration were not loaded.",
+                         "version":  "Checkstyle version: 11.1.0"
+                     },
+                     {
+                         "language":  "C/C++",
+                         "tool":  "Cppcheck",
+                         "check":  "SECURITY / QUALITY",
+                         "status":  "FAILED",
+                         "reason":  "SCANNER_FAILED",
+                         "version":  "Cppcheck 2.19.0"
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "Trivy",
+                         "check":  "Dependency CVEs / secrets",
+                         "status":  "COMPLETED",
+                         "reason":  "Managed configuration; static, offline invocation. Repository plugins and configuration were not loaded.",
+                         "version":  "Version: 0.67.2"
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "Trivy",
+                         "check":  "Dependency coverage limits",
+                         "status":  "UNSUPPORTED",
+                         "reason":  "Offline manifest/lockfile and existing archive analysis only. No dependency installation, build, remote resolution or executable repository configuration. Unsupported manifests remain outside coverage.",
+                         "version":  null
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "RepoGuard",
+                         "check":  "Scanner result limit",
+                         "status":  "SKIPPED",
+                         "reason":  "Managed scanner results exceeded the finding limit; highest severity results were retained.",
+                         "version":  null
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "RepoGuard",
+                         "check":  "Result limit",
+                         "status":  "SKIPPED",
+                         "reason":  "Finding limit reached. Highest severity findings are retained; at equal severity, security/dependency/secret findings and managed scanner findings take precedence over generic quality hints.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     }
+                 ],
+    "findingsByTool":  [
+                           {
+                               "count":  70,
+                               "tool":  "Trivy"
+                           },
+                           {
+                               "count":  174,
+                               "tool":  "RepoGuard"
+                           },
+                           {
+                               "count":  191,
+                               "tool":  "Checkstyle"
+                           },
+                           {
+                               "count":  565,
+                               "tool":  "detekt"
+                           }
+                       ],
+    "findingsByCategorySeverity":  [
+                                       {
+                                           "categoryAndSeverity":  "DEPENDENCY, HIGH",
+                                           "count":  40
+                                       },
+                                       {
+                                           "categoryAndSeverity":  "SECURITY, HIGH",
+                                           "count":  7
+                                       },
+                                       {
+                                           "categoryAndSeverity":  "SECRET, HIGH",
+                                           "count":  2
+                                       },
+                                       {
+                                           "categoryAndSeverity":  "DEPENDENCY, MEDIUM",
+                                           "count":  20
+                                       },
+                                       {
+                                           "categoryAndSeverity":  "QUALITY, MEDIUM",
+                                           "count":  165
+                                       },
+                                       {
+                                           "categoryAndSeverity":  "DEPENDENCY, LOW",
+                                           "count":  10
+                                       },
+                                       {
+                                           "categoryAndSeverity":  "QUALITY, LOW",
+                                           "count":  756
+                                       }
+                                   ],
+    "expectedLanguageDetected":  true,
+    "missingCompletedTools":  [
+
+                              ],
+    "interpretation":  "PASS applies only to the stated real-project probe, not full language/security/product acceptance. Configured unsupported checks remain outside coverage.",
+    "expected":  "Original import reaches static analysis; expected language detected; applicable managed scanners complete. Failures, skipped content and finding limits remain recorded. Real project probes do not replace seeded per-language acceptance fixtures.",
+    "testedVersion":  "repoguard-source-2026.11.02.2",
+    "environment":  "Windows Docker Desktop; local Compose stack, private offline worker, PostgreSQL",
+    "evidence":  "REAL-09.json"
+}

@@ -1,0 +1,35 @@
+{
+    "testId":  "REAL-05",
+    "requirementRefs":  [
+                            "IMP-01",
+                            "IMP-07",
+                            "IMP-11",
+                            "IMP-14",
+                            "LANG-13",
+                            "LANG-14",
+                            "LANG-15",
+                            "ANA-06",
+                            "ANA-09",
+                            "DATA-01",
+                            "E2E-02",
+                            "LANG-05"
+                        ],
+    "repository":  "https://github.com/thedotmack/claude-mem",
+    "expectedLanguage":  "JavaScript/TypeScript",
+    "expectedTools":  [
+                          "ESLint",
+                          "Semgrep",
+                          "Trivy"
+                      ],
+    "startedAt":  "2026-11-02T14:47:50.8401733Z",
+    "completedAt":  "2026-11-02T14:52:59.3283051Z",
+    "status":  "FAIL",
+    "scanId":  "953ef08d-0f8a-44b6-8063-b870c58af226",
+    "scanStatus":  "BLOCKED",
+    "failureCode":  "MALWARE_DETECTED",
+    "failureMessage":  "The malware pre-scan detected a threat or an archive scan limit. Analysis was blocked.",
+    "expected":  "Original import reaches static analysis; expected language detected; applicable managed scanners complete. Failures, skipped content and finding limits remain recorded. Real project probes do not replace seeded per-language acceptance fixtures.",
+    "testedVersion":  "repoguard-source-2026.11.02.2",
+    "environment":  "Windows Docker Desktop; local Compose stack, private offline worker, PostgreSQL",
+    "evidence":  "REAL-05.json"
+}

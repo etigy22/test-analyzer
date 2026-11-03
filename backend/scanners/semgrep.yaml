@@ -1,0 +1,46 @@
+rules:
+  - id: managed-python-eval
+    languages: [python]
+    message: Dynamic evaluation requires review.
+    severity: ERROR
+    pattern: eval(...)
+  - id: managed-js-eval
+    languages: [javascript, typescript]
+    message: Dynamic evaluation requires review.
+    severity: ERROR
+    pattern: eval(...)
+  - id: managed-java-exec
+    languages: [java]
+    message: Process execution requires input validation.
+    severity: ERROR
+    pattern: Runtime.getRuntime().exec(...)
+  - id: managed-c-unsafe-copy
+    languages: [c, cpp]
+    message: Unbounded memory copy requires review.
+    severity: ERROR
+    pattern: strcpy(...)
+  - id: managed-php-eval
+    languages: [php]
+    message: Dynamic evaluation requires review.
+    severity: ERROR
+    pattern: eval(...)
+  - id: managed-go-command
+    languages: [go]
+    message: Process execution requires input validation.
+    severity: ERROR
+    pattern: exec.Command(...)
+  - id: managed-csharp-process
+    languages: [csharp]
+    message: Process execution requires input validation.
+    severity: ERROR
+    pattern: Process.Start(...)
+  - id: managed-rust-command
+    languages: [rust]
+    message: Process execution requires input validation.
+    severity: ERROR
+    pattern: Command::new(...)
+  - id: managed-kotlin-exec
+    languages: [kotlin]
+    message: Process execution requires input validation.
+    severity: ERROR
+    pattern: Runtime.getRuntime().exec(...)

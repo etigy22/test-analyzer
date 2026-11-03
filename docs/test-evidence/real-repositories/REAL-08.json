@@ -1,0 +1,181 @@
+{
+    "testId":  "REAL-08",
+    "requirementRefs":  [
+                            "IMP-01",
+                            "IMP-07",
+                            "IMP-11",
+                            "IMP-14",
+                            "LANG-13",
+                            "LANG-14",
+                            "LANG-15",
+                            "ANA-06",
+                            "ANA-09",
+                            "DATA-01",
+                            "E2E-02",
+                            "LANG-08"
+                        ],
+    "repository":  "https://github.com/go-chi/chi",
+    "expectedLanguage":  "Go",
+    "expectedTools":  [
+                          "gofmt",
+                          "Semgrep",
+                          "Trivy"
+                      ],
+    "startedAt":  "2026-11-02T14:54:21.2652628Z",
+    "completedAt":  "2026-11-02T14:54:51.5504477Z",
+    "status":  "PASS",
+    "scanId":  "8d24524f-d963-462c-8168-12501d6fd4b9",
+    "scanStatus":  "PARTIAL",
+    "failureCode":  null,
+    "failureMessage":  null,
+    "archiveSha256":  "733b06ff87c3a3728f22829f08b9b5edf1eba3bf563148bd65f9cf4a5a08b2db",
+    "archiveBytes":  158295,
+    "rulesVersion":  "repoguard-source-2026.11.02.2",
+    "malwareDataVersion":  "577d84ab-869e-4530-ac30-138cce8270f6",
+    "truncated":  false,
+    "durationMillis":  6067,
+    "findingCount":  34,
+    "languages":  [
+                      {
+                          "name":  "Unknown",
+                          "files":  21,
+                          "bytes":  74099
+                      },
+                      {
+                          "name":  "Go",
+                          "files":  89,
+                          "bytes":  377806
+                      }
+                  ],
+    "coverage":  [
+                     {
+                         "language":  "Unknown",
+                         "tool":  "RepoGuard",
+                         "check":  "Language-specific rules",
+                         "status":  "UNSUPPORTED",
+                         "reason":  "Only generic text checks apply to unknown file types.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     },
+                     {
+                         "language":  "Go",
+                         "tool":  "RepoGuard",
+                         "check":  "SECURITY",
+                         "status":  "COMPLETED",
+                         "reason":  "Bundled language-specific text rules ran. No syntax, type or interprocedural data-flow analysis.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     },
+                     {
+                         "language":  "Go",
+                         "tool":  "RepoGuard",
+                         "check":  "QUALITY",
+                         "status":  "COMPLETED",
+                         "reason":  "Bundled language-specific text rules ran. No syntax, type or interprocedural data-flow analysis.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     },
+                     {
+                         "language":  "Go",
+                         "tool":  "RepoGuard",
+                         "check":  "Compiler/build-dependent analysis",
+                         "status":  "UNSUPPORTED",
+                         "reason":  "Checks requiring target compilation, dependency installation or executable project plugins are prohibited.",
+                         "version":  null
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "RepoGuard",
+                         "check":  "Secrets and configuration",
+                         "status":  "COMPLETED",
+                         "reason":  "Bounded text patterns; all stored literals and sensitive assignments are masked.",
+                         "version":  "repoguard-source-2026.11.02.2"
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "RepoGuard",
+                         "check":  "Offline dependency advisories",
+                         "status":  "COMPLETED",
+                         "reason":  "Small bundled advisory set for exact npm, pip and Maven versions only. Other ecosystems, version ranges, transitive resolution and comprehensive CVE coverage are UNSUPPORTED.",
+                         "version":  "curated-2026.10.29.1"
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "ClamAV",
+                         "check":  "Mandatory malware pre-scan",
+                         "status":  "COMPLETED",
+                         "reason":  "Signed local signatures were used. This is not a guarantee of malware freedom.",
+                         "version":  "577d84ab-869e-4530-ac30-138cce8270f6"
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "Semgrep",
+                         "check":  "Managed AST security rules",
+                         "status":  "COMPLETED",
+                         "reason":  "Managed configuration; static, offline invocation. Repository plugins and configuration were not loaded.",
+                         "version":  "1.140.0"
+                     },
+                     {
+                         "language":  "Go",
+                         "tool":  "gofmt",
+                         "check":  "QUALITY",
+                         "status":  "COMPLETED",
+                         "reason":  "Managed configuration; static, offline invocation. Repository plugins and configuration were not loaded.",
+                         "version":  "go version go1.26.8 linux/amd64"
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "Trivy",
+                         "check":  "Dependency CVEs / secrets",
+                         "status":  "COMPLETED",
+                         "reason":  "Managed configuration; static, offline invocation. Repository plugins and configuration were not loaded.",
+                         "version":  "Version: 0.67.2"
+                     },
+                     {
+                         "language":  null,
+                         "tool":  "Trivy",
+                         "check":  "Dependency coverage limits",
+                         "status":  "UNSUPPORTED",
+                         "reason":  "Offline manifest/lockfile and existing archive analysis only. No dependency installation, build, remote resolution or executable repository configuration. Unsupported manifests remain outside coverage.",
+                         "version":  null
+                     }
+                 ],
+    "findingsByTool":  [
+                           {
+                               "count":  31,
+                               "tool":  "RepoGuard"
+                           },
+                           {
+                               "count":  3,
+                               "tool":  "Trivy"
+                           }
+                       ],
+    "findingsByCategorySeverity":  [
+                                       {
+                                           "categoryAndSeverity":  "SECURITY, HIGH",
+                                           "count":  10
+                                       },
+                                       {
+                                           "categoryAndSeverity":  "SECRET, HIGH",
+                                           "count":  1
+                                       },
+                                       {
+                                           "categoryAndSeverity":  "DEPENDENCY, MEDIUM",
+                                           "count":  3
+                                       },
+                                       {
+                                           "categoryAndSeverity":  "QUALITY, MEDIUM",
+                                           "count":  14
+                                       },
+                                       {
+                                           "categoryAndSeverity":  "QUALITY, LOW",
+                                           "count":  6
+                                       }
+                                   ],
+    "expectedLanguageDetected":  true,
+    "missingCompletedTools":  [
+
+                              ],
+    "interpretation":  "PASS applies only to the stated real-project probe, not full language/security/product acceptance. Configured unsupported checks remain outside coverage.",
+    "expected":  "Original import reaches static analysis; expected language detected; applicable managed scanners complete. Failures, skipped content and finding limits remain recorded. Real project probes do not replace seeded per-language acceptance fixtures.",
+    "testedVersion":  "repoguard-source-2026.11.02.2",
+    "environment":  "Windows Docker Desktop; local Compose stack, private offline worker, PostgreSQL",
+    "evidence":  "REAL-08.json"
+}

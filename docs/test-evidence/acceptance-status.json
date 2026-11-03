@@ -1,0 +1,1969 @@
+{
+    "releaseReady":  false,
+    "policy":  "Only complete evidence earns PASS. NOT TESTED includes criteria with partial evidence but no full acceptance. Real-project probe PASS is distinct from acceptance-criterion PASS.",
+    "generatedAt":  "2026-11-03T08:19:09.2266298Z",
+    "criteria":  [
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Name",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SYS-01",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.1877941Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Stack",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SYS-02",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2094601Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Compose",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SYS-03",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2104609Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Health",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SYS-04",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2104609Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Persistenz",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SYS-05",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2104609Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Konfiguration",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SYS-06",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "Parallelism remains hard-coded to one; not every required runtime limit is configurable and fully represented in UI. New malware/result limits do not complete this criterion.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2119729Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "FAIL"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Keine HostNox-Reste",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SYS-07",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2119729Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Betrieb ohne Cloud",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SYS-08",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2119729Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Containerprivilegien",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SYS-09",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2119729Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Reproduzierbarkeit",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SYS-10",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2129819Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "GitHub URL",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-01",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2129819Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Falsche Hosts",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-02",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2129819Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "URL-Sonderfälle",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-03",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2129819Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Neuerzeugte Downloadadresse",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-04",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2129819Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "SSRF",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-05",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2129819Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Redirect/TLS",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-06",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2129819Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Archiv statt Checkout",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-07",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2129819Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "ZIP-Upload",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-08",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2139902Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "ZIP-Slip",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-09",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2139902Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "ZIP-Bomb",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-10",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2139902Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Verified for stated criterion",
+                         "description":  "Dateitypen",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-11",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "CoreAnalysisTest and RealRepositoryRegressionTest: dangerous/special/colliding entries rejected; safe internal file links remain passive; copied bytes bounded. Directory links remain unsupported, see REAL-03.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2139902Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "PASS"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Downloadlimits",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-12",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2139902Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Quarantäne",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-13",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2139902Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Malware",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-14",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2139902Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Fail-closed",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-15",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2139902Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Kein Quellcode-Cloudtransfer",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "IMP-16",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2149910Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Keine Projektausführung",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "EXE-01",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2149910Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Kein Build/Test",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "EXE-02",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2149910Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Keine Hooks",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "EXE-03",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2149910Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Vertrauenswürdige Regeln",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "EXE-04",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2149910Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Scanner-Isolation",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "EXE-05",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2149910Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Beobachtbarer Nachweis",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "EXE-06",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2149910Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Kein dynamischer Modus",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "EXE-07",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2159914Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Java",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-01",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2159914Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Python",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-02",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2159914Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Rust",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-03",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2159914Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Swift",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-04",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2159914Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "JavaScript/TypeScript",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-05",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2159914Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "C/C++",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-06",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "Cppcheck is installed, but the specified C/C++ format-check adapter is missing. REAL-06 also has Semgrep partial failure; positive separate C and C++ acceptance remains incomplete.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2159914Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "FAIL"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "C#",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-07",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2159914Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Go",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-08",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2169957Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Kotlin",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-09",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2169957Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "PHP",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-10",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2169957Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Mixed repo",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-11",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2169957Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Unbekannte Sprache",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-12",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2169957Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Verified for stated criterion",
+                         "description":  "Coverage",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-13",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "Per-tool statuses, versions and reasons retained in all real-project results and browser coverage view. This does not accept each individual language.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2169957Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "PASS"
+                     },
+                     {
+                         "fixStatus":  "Verified for stated criterion",
+                         "description":  "Fehlertransparenz",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-14",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "ExternalScannersTest plus actual REAL-06/REAL-09: unavailable/failed tools explicitly reported; never inferred successful from zero findings.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2169957Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "PASS"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Verfügbare Checks",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "LANG-15",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2179911Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Kategorien",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "ANA-01",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2179911Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Sicherheitsmuster",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "ANA-02",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2186195Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Qualitätsmuster",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "ANA-03",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2186195Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Dependencies",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "ANA-04",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2186195Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Keine Überversprechen",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "ANA-05",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2186195Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Finding-Felder",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "ANA-06",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "Tool versions and paths are now normalized correctly. Several explanations/remediations remain generic; dependency package/version context is still insufficient.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2186195Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "FAIL"
+                     },
+                     {
+                         "fixStatus":  "Verified for stated criterion",
+                         "description":  "Duplikate",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "ANA-07",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "BoundedFindings deduplicates retained fingerprints; regression verifies duplicate input does not inflate retained findings.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2186195Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "PASS"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "API-Verlässlichkeit",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "ANA-08",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2186195Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Verified for stated criterion",
+                         "description":  "Scanstatus",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "ANA-09",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "Actual real-project states PARTIAL, FAILED and BLOCKED are distinct and retained in results.json.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2196319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "PASS"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Branding",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "UI-01",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2196319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Design",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "UI-02",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2196319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Themes",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "UI-03",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2196319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Sprachen",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "UI-04",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "Several runtime errors, coverage reasons and report labels remain English in the German workflow. Theme/locale switching tests do not prove full translation.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2196319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "FAIL"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Responsivität",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "UI-05",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2196319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "A11y",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "UI-06",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2196319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Offline UI",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "UI-07",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2196319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Workflow",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "UI-08",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2206303Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Progress",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "UI-09",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2206303Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Findings",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "UI-10",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2206303Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Fehler",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "UI-11",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2206303Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Sicherheitshinweis",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "UI-12",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2206303Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Aktive Inhalte",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "UI-13",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2206303Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Löschung",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DATA-01",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2206303Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Fehlerbereinigung",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DATA-02",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2206303Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Persistenz",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DATA-03",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2216317Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Keine Vollquellen",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DATA-04",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2216317Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Snippet-Limit",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DATA-05",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2216317Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Secrets",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DATA-06",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2216317Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Historie",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DATA-07",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2216317Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Löschen",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DATA-08",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2216317Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "PDF",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DATA-09",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2216317Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Datenupdate",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DATA-10",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2216317Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Scan-Netztrennung",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DATA-11",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2226301Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Offline/Altstand",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DATA-12",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2226301Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Updatefehler",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DATA-13",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2226301Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "LAN ohne Login",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SEC-01",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2226301Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Keine Internetöffnung",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SEC-02",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2226301Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Verified for stated criterion",
+                         "description":  "API-Schutz",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SEC-03",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "Browser SEC-03 and BrowserRequestFilter tests: hostile origins, missing mutation header and hostile Host rejected.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2226301Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "PASS"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Eingaben/XSS",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SEC-04",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2226301Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Limits",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SEC-05",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2236321Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Isolation",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SEC-06",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2236321Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "DB",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SEC-07",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2236321Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Logs",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SEC-08",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2236321Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Systemrisiko",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SEC-09",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2236321Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Fehlerbehandlung",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "SEC-10",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2236321Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Quellcode",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DOC-01",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2236321Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Docker",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DOC-02",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2236321Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Anleitung",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DOC-03",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2246306Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Sicherheitsdoku",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DOC-04",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2246306Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Datenhaltung",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DOC-05",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2246306Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Scanner-Matrix",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DOC-06",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2246306Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Verified for stated criterion",
+                         "description":  "Testdoku",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DOC-07",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "Actual backend/browser tests, ten unchanged GitHub inputs and their failures are documented with evidence. No product release claimed.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2246306Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "PASS"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Lizenzen",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "DOC-08",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2246306Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "IDE-Agent",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "AGENT-01",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2246306Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Git-Anbindung",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "AGENT-02",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2256319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Prompt-gesteuert",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "AGENT-03",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2256319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Agentenimplementierung",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "AGENT-04",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2256319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Nachvollziehbarkeit",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "AGENT-05",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2256319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Verified for stated criterion",
+                         "description":  "Dokumentkontext",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "AGENT-06",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "All four binding documents reread; this IDE-agent task maps changes to IMP-11, ANA-06 and ANA-09 with regression tests and real inputs.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2256319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "PASS"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Sicherheitsgrenze",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "AGENT-07",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2256319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     },
+                     {
+                         "fixStatus":  "Open",
+                         "description":  "Übergabe",
+                         "environment":  "Local Windows/Docker Compose; IDE checkout",
+                         "testId":  "AGENT-08",
+                         "expected":  "All conditions of this criterion as written in the binding acceptance document.",
+                         "actual":  "No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS.",
+                         "requirementRef":  "ACCEPTANCE_CRITERIA.md",
+                         "timestamp":  "2026-11-03T08:19:09.2256319Z",
+                         "evidence":  [
+                                          "docs/REAL_REPOSITORY_ACCEPTANCE.md",
+                                          "docs/test-evidence/real-repositories/results.json",
+                                          "backend/target/surefire-reports",
+                                          "frontend/test-results/e2e-results.json"
+                                      ],
+                         "testedVersion":  "repoguard-source-2026.11.03.1",
+                         "status":  "NOT TESTED"
+                     }
+                 ]
+}

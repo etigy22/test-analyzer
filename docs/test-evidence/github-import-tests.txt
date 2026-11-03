@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.repoguard.api.ImportControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.812 s -- in com.repoguard.api.ImportControllerTest
+-------------------------------------------------------------------------------
+Test set: com.repoguard.importing.GitHubArchiveDownloaderTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.22 s -- in com.repoguard.importing.GitHubArchiveDownloaderTest
+-------------------------------------------------------------------------------
+Test set: com.repoguard.importing.GitHubDnsResolverTest
+-------------------------------------------------------------------------------
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.255 s -- in com.repoguard.importing.GitHubDnsResolverTest
+-------------------------------------------------------------------------------
+Test set: com.repoguard.importing.GitHubRepositoryUrlValidatorTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s -- in com.repoguard.importing.GitHubRepositoryUrlValidatorTest
