@@ -184,3 +184,7 @@ Ports, Volumes und Limits konfigurierbar. Standardports in Compose/README konsis
 
 ## 15. Definition of Done
 RepoGuard ist erst fertig, wenn alle **MUSS**-Kriterien in `ACCEPTANCE_CRITERIA.md` mit **PASS** und Nachweis abgeschlossen sind; beide Phasen und zehn Sprachen real funktionieren; keine fremde Codeausführung möglich ist; das Import-/Malware-/Scanner-Isolationsmodell nach Negativtests funktioniert; vollständige Fremddateien bereinigt werden; UI/DB/Export konsistent und secretsicher sind; Compose reproduzierbar startet, der Agenten-Workflow in VS Code oder IntelliJ IDEA über ein Git-Repository praktisch nachgewiesen ist und Dokumentation vollständig ist. Bekannte kritische/hohe ungeklärte Sicherheitslücken verhindern eine Freigabe.
+
+## Verbindliche Prompt-Dokumentation (Ergänzung 2026-11-06)
+
+Jede neue projektbezogene Nutzernachricht MUSS vor ihrer inhaltlichen Bearbeitung in [PROMPTS.md](PROMPTS.md) mit fortlaufender ID, bekanntem Datum, Quelle und ursprünglichem Wortlaut dokumentiert werden. Dies umfasst Rückfragen, Korrekturen, Freigaben und Fortsetzungsaufforderungen. Die dortige Regel zu Vertraulichkeit, Anhängen, fehlender Historie und Vermeidung von Duplikaten ist verbindlich. `.env`-Inhalte und Zugangsdaten werden nicht übernommen. [AGENTS.md](AGENTS.md) verankert diese Pflicht für die Projektarbeit.

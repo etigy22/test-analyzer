@@ -1,5 +1,9 @@
 # RepoGuard Architecture Decisions
 
+## Nutzerentscheidung: verbindliches Promptprotokoll (2026-11-06)
+
+Neue projektbezogene Nutzernachrichten werden vor der Bearbeitung gemäß [PROMPTS.md](../PROMPTS.md) mit fortlaufender ID, bekanntem Datum, Quelle und ursprünglichem Wortlaut dokumentiert. [AGENTS.md](../AGENTS.md) und die Pflichtdokumente verankern diese Regel. Rückfragen, Korrekturen, Freigaben und Fortsetzungen gehören dazu. Anhänge nur referenzieren, Zugangsdaten maskieren, keine `.env`-Inhalte übernehmen. Nicht verfügbare Historie bleibt ausdrücklich unvollständig. Es wird kein automatischer Hintergrundexport eingerichtet.
+
 ## ADR-001: Use GitHub source archives, not `git clone`
 
 RepoGuard rebuilds allowed GitHub download URLs from validated owner/repository components. It does not pass user URLs to Git or shell commands, and it does not clone repositories, initialize submodules, or trigger hooks.

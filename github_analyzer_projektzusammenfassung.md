@@ -271,3 +271,7 @@ Die eigentliche Implementierung und Verifikation auf dem Zielrechner stehen noch
 | Umsetzungsstatus | **Noch nicht programmiert** |
 
 **Leitprinzip:** Der Analyzer prüft ausschließlich Quellcode und statisch zugängliche Metadaten, **bevor** Entwickler ein Projekt starten. Keinerlei vom untersuchten Repository stammender Code wird ausgeführt – auch nicht indirekt über Build-Tools, Plugins oder Konfigurationsskripte. **Jeder GitHub-Link wird vor dem Download validiert und jeder Download bleibt nicht vertrauenswürdiger, isolierter Input.**
+
+## Verbindliche Prompt-Dokumentation (Ergänzung 2026-11-06)
+
+Alle neuen projektbezogenen Nutzernachrichten einschließlich Rückfragen, Korrekturen und Freigaben werden vor ihrer Bearbeitung gemäß der verbindlichen Regel in [PROMPTS.md](PROMPTS.md) fortlaufend protokolliert. Nicht verfügbare frühere Nachrichten werden nicht erfunden; Anhänge werden nur referenziert und Zugangsdaten ausgeschlossen. Keine `.env`-Inhalte übernehmen. Für künftige Projektarbeit gilt zusätzlich [AGENTS.md](AGENTS.md).

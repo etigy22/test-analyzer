@@ -119,3 +119,7 @@ Die gezielt nachgewiesenen Kriterien stehen unten. Insbesondere LAN-/Offline-Net
 | AGENT-06 | Dokumentkontext | PASS | All four binding documents reread; this IDE-agent task maps changes to IMP-11, ANA-06 and ANA-09 with regression tests and real inputs. |
 | AGENT-07 | Sicherheitsgrenze | NOT TESTED | No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS. |
 | AGENT-08 | Übergabe | NOT TESTED | No complete individual acceptance proof in this scoped test series. Existing partial evidence does not constitute PASS. |
+
+## Verbindliche Prompt-Dokumentation (Ergänzung 2026-11-06)
+
+**DOC-PROMPT-01: teilweise nachgewiesen; Folgesitzung NOT TESTED.** Erstaufnahme der 18 sichtbaren Nutzernachrichten in [PROMPTS.md](../PROMPTS.md) und verbindliche Pflegepflicht in [AGENTS.md](../AGENTS.md) sowie den übrigen Projektdokumenten. Neue projektbezogene Nachrichten sind vor der Bearbeitung nachzutragen. Anhänge nur referenzieren; keine Zugangsdaten oder `.env`-Inhalte übernehmen. Fehlende frühere Historie bleibt als solche gekennzeichnet. Die langfristige Einhaltung ist mit einer späteren Nachricht zu prüfen. Bestehende Produktabnahmekriterien und releaseReady bleiben unverändert.

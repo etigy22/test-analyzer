@@ -103,3 +103,7 @@ Für UI-bezogene Agentenaufträge ist mindestens festzuhalten: gewünschte Ansic
 
 ## 10. Verbindliche Designabnahme
 Gestaltung und Verhalten gelten erst als erfüllt, wenn der gesamte Import-Scan-Bericht-Export-Workflow ohne Terminal im Browser funktioniert, alle genannten Zustände auf echten Backend-Daten beruhen, alte Historie **keinen Vollquelltext** zeigt und keine Secrets offenlegt. Eine reine grafische Vorschau gilt nicht als Umsetzung.
+
+## Verbindliche Prompt-Dokumentation (Ergänzung 2026-11-06)
+
+Projektbezogene Nutzeraufträge und Designkorrekturen werden vor ihrer Bearbeitung gemäß [PROMPTS.md](PROMPTS.md) fortlaufend dokumentiert. Die Regel gilt für die Entwicklungsdokumentation; eine neue Produktfunktion oder KI-Anbindung entsteht dadurch nicht. Anhänge nur referenzieren, Zugangsdaten maskieren, keine `.env`-Inhalte übernehmen. [AGENTS.md](AGENTS.md) verankert die Pflegepflicht.

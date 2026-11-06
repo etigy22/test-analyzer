@@ -42,6 +42,10 @@ Ten unmodified real GitHub projects: docs/REAL_REPOSITORY_ACCEPTANCE.md and docs
 Backend checks include ten-language source rules, scanner normalization and failures, bounded separate output streams, masking, fingerprints, curated CVEs, ZIP attacks, cleanup, malware gating and origin/host checks. Browser cases exercise all twelve installed scanners on passive ten-language input, real offline Trivy CVE findings, hostile project configuration, ZIP scans, filtering, masked details, PDF download, EICAR and traversal blocking, history/comparison/deletion, German/English and light/dark at three widths. Failed/skipped cases are not accepted.
 
 Docker startup and the ClamAV/Trivy security data update succeeded. Installed tools and their limits are documented in scanner/SCANNER_INVENTORY.md. Compiler/type/build-dependent analysis, unsupported dependency formats and missing transitive metadata remain outside coverage. Full operational acceptance remains incomplete: live GitHub/TLS/network tracing, restart/backup acceptance, independent LAN-device access and PDF visual inspection are outstanding. No production/security release approval is claimed.
+
+## Verbindliche Prompt-Dokumentation
+
+DOC-PROMPT-01: Neue projektbezogene Nutzernachrichten vor ihrer Bearbeitung nach der verbindlichen Regel in [PROMPTS.md](PROMPTS.md) fortlaufend mit bekanntem Datum, Quelle und ursprünglichem Wortlaut dokumentieren. [AGENTS.md](AGENTS.md) und die Pflichtdokumente verankern die Regel. Anhänge nur referenzieren; Zugangsdaten und .env-Inhalte ausschließen. Fehlende frühere Historie nicht erfinden. Die fortlaufende Einhaltung ist gesondert zu prüfen; dieser generierte Bericht stellt dafür keinen PASS-Nachweis aus.
 "@
 [IO.File]::WriteAllText((Join-Path $ProjectRoot 'TEST_REPORT.md'),$text,$utf8)
 Write-Output "Backend $pass PASS, $fail FAIL; browser $($browser.stats.expected) passed, $($browser.stats.unexpected) failed."

@@ -1,3 +1,4 @@
+
 # RepoGuard
 
 Lokale Webanwendung für statische Repository-Prüfungen. **Fremder Code wird niemals gebaut, installiert, getestet oder ausgeführt.**
@@ -78,3 +79,7 @@ Browserprüfungen benötigen den laufenden Stack mit Signaturen und legen aussch
 ## Historie gesammelt löschen
 
 Unter **Analysen** können auch fehlgeschlagene und blockierte abgeschlossene Jobs markiert werden. **Alle sichtbaren auswählen** berücksichtigt den aktuellen Suchfilter. **Auswahl löschen** löscht nach einer gemeinsamen Bestätigung die gesamte Auswahl samt Ergebnissen und Snippets. Laufende Jobs sind geschützt; enthält eine API-Auswahl einen laufenden oder fehlenden Job, wird nichts gelöscht. Nur der Vergleich bleibt auf genau zwei Analysen mit Ergebnissen begrenzt.
+
+## Verbindliche Prompt-Dokumentation (Ergänzung 2026-11-06)
+
+Nutzeraufträge stehen im [Projekt-Promptprotokoll](PROMPTS.md). Neue projektbezogene Nutzernachrichten müssen vor ihrer Bearbeitung nach der dortigen Regel ergänzt werden. [AGENTS.md](AGENTS.md) macht diese Pflicht für künftige Projektarbeit auffindbar. Anhänge werden nur referenziert; Zugangsdaten und `.env`-Inhalte bleiben ausgeschlossen. Es gibt keinen automatischen Chat-Export im Hintergrund.

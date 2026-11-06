@@ -4,7 +4,7 @@ RepoGuard is developed inside a Git checkout opened in VS Code or IntelliJ IDEA.
 
 ## Required workflow
 
-1. Read `github_analyzer_projektzusammenfassung.md`, `REQUIREMENTS.md`, `DESIGN.md`, and `ACCEPTANCE_CRITERIA.md`.
+1. Read `AGENTS.md`, `PROMPTS.md`, `github_analyzer_projektzusammenfassung.md`, `REQUIREMENTS.md`, `DESIGN.md`, and `ACCEPTANCE_CRITERIA.md`. Before substantive work on each new project-related user message, append its original wording, sequential ID, known date and source to `PROMPTS.md` under its binding logging rule. Include corrections, approvals and continuation requests; avoid duplicates. Reference attachments without copying contents, redact credentials, and never copy `.env` contents. Do not invent unavailable history or log system/developer instructions, internal reasoning or tool output. This is a project-work obligation, not an automatic background chat export.
 2. Plan the change and map it to acceptance criteria.
 3. Modify RepoGuard application files only.
 4. Build and test RepoGuard itself where the environment allows it.

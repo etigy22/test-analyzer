@@ -210,3 +210,7 @@ Verpflichtend: `TEST_REPORT.md` (menschenlesbar) und `test-results.json` (maschi
 
 ## 15. Traceability und Vorrang
 Die IDs dieses Dokuments sind verbindlich und werden in automatisierten Tests/Reports verwendet. Bei Sicherheitskonflikten gelten stets die strikten Verbote aus `REQUIREMENTS.md`; nicht realisierbare Scannerprüfungen werden ehrlich als `UNSUPPORTED`/`SKIPPED` mit Grund ausgewiesen, **niemals** durch Ausführung von Fremdcode kompensiert.
+
+## Verbindliche Prompt-Dokumentation (Ergänzung 2026-11-06)
+
+**DOC-PROMPT-01 (MUSS):** Alle verfügbaren projektbezogenen Nutzernachrichten sind in [PROMPTS.md](PROMPTS.md) fortlaufend mit Herkunft, bekanntem Datum und ursprünglichem Wortlaut erfasst. Neue Nachrichten werden vor ihrer Bearbeitung ergänzt; Stichprobe in einer Folgesitzung erforderlich. Fehlende frühere Historie ist ausdrücklich gekennzeichnet. Keine Zugangsdaten oder `.env`-Inhalte im Protokoll; Anhänge nur referenzieren. Die Regel ist in [AGENTS.md](AGENTS.md) und den verbindlichen Projektdokumenten verlinkt. Maßgeblich ist die vollständige Protokollierungsregel in PROMPTS.md.
