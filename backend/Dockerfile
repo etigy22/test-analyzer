@@ -34,7 +34,7 @@ RUN mkdir /opt/bundle && cp /usr/bin/swiftlint /usr/lib/libsourcekitdInProc.so /
     && (ldd /usr/bin/swiftlint; ldd /usr/lib/libsourcekitdInProc.so) | awk '/=> \// {print $3}' | sort -u | xargs -I{} cp -L {} /opt/bundle/
 
 FROM python:3.12.12-slim-bookworm AS python-scanners
-RUN pip install --no-cache-dir bandit==1.8.6 ruff==0.14.3 semgrep==1.140.0 pydantic==2.11.10 pydantic-settings==2.10.1
+RUN pip install --no-cache-dir bandit==1.8.6 ruff==0.14.3 semgrep==1.183.0 pydantic==2.11.10 pydantic-settings==2.10.1
 
 FROM maven:3.9.11-eclipse-temurin-21 AS checkstyle
 WORKDIR /opt/checkstyle

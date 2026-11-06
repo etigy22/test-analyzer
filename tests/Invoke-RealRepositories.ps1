@@ -1,4 +1,4 @@
-param([string]$BaseUrl='http://localhost:8088',[string]$OutputDirectory=(Join-Path (Split-Path -Parent $PSScriptRoot) 'docs/test-evidence/real-repositories'))
+param([string]$BaseUrl='http://localhost:8088',[string]$OutputDirectory=(Join-Path (Split-Path -Parent $PSScriptRoot) 'docs/test-evidence/real-repositories'),[string]$RepositoryFilter='')
 $ErrorActionPreference='Stop'
 [void][IO.Directory]::CreateDirectory($OutputDirectory)
 $utf8=New-Object Text.UTF8Encoding($false)
@@ -21,6 +21,7 @@ Save-Run
 $number=0
 foreach($project in $projects) {
  $number++
+ if($RepositoryFilter -and $project.repo -notin $RepositoryFilter.Split(',')){continue}
  $entry=[ordered]@{testId=('REAL-{0:D2}' -f $number);requirementRefs=@('IMP-01','IMP-07','IMP-11','IMP-14','LANG-13','LANG-14','LANG-15','ANA-06','ANA-09','DATA-01','E2E-02');repository="https://github.com/$($project.repo)";expectedLanguage=$project.language;expectedTools=$project.tools;startedAt=(Get-Date).ToUniversalTime().ToString('o');completedAt=$null;status='NOT TESTED';scanId=$null;scanStatus=$null;failureCode=$null;failureMessage=$null}
  $entry.requirementRefs+=('LANG-{0:D2}' -f $number)
  $entry.expected=$run.expected;$entry.testedVersion=$run.version;$entry.environment=$run.environment

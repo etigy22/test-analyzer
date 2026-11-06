@@ -9,7 +9,10 @@ public final class AnalysisModels {
                           String explanation, String remediation, String tool, String toolVersion,
                           String language, String path, int line, String fingerprint, Snippet snippet) { }
     public record Snippet(int startLine, int endLine, String text, boolean truncated) { }
-    public record Coverage(String language, String tool, String check, String status, String reason, String version) { }
+    public record Coverage(String language, String tool, String check, String status, String reason, String version, Boolean applicable) {
+        public Coverage(String language,String tool,String check,String status,String reason,String version){this(language,tool,check,status,reason,version,true);}
+        public boolean incomplete(){return !status.equals("COMPLETED") && !(Boolean.FALSE.equals(applicable) && status.equals("UNSUPPORTED"));}
+    }
     public record Language(String name, int files, long bytes) { }
     public record Result(List<Finding> findings, List<Coverage> coverage, List<Language> languages,
                          String archiveSha256, long archiveBytes, String rulesVersion, String malwareVersion,

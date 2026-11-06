@@ -1,8 +1,12 @@
 # RepoGuard test report
 
-Generated: 2026-11-03T08:19:49.8170290Z
+Commit preparation, 2026-11-06: the expanded scanner adapters use Semgrep 1.183.0, bounded ESLint input batches, concise Ruff diagnostics and a 10 MB text limit. The backend regression suite has 112 passing tests; frontend TypeScript checking and the production build pass. The nine browser passes below predate these latest adapter changes. The focused fmt retry still reports a Semgrep parser error (docs/test-evidence/expanded-fmt); no claim that all ten repositories complete successfully is made. Expanded claude-mem and a fresh strict ten-repository run remain outstanding.
 
-Backend: 109 PASS, 0 FAIL. Browser: 8 passed, 0 failed, 0 skipped.
+Generated: 2026-11-03T10:50:14.6600006Z
+
+Backend: 111 PASS, 0 FAIL. Browser: 9 passed, 0 failed, 0 skipped.
+
+Real original GitHub scans with persisted COMPLETED and zero applicable gaps: 5. Evidence and scope explanation: docs/FIVE_COMPLETED_SCANS.md.
 
 Evidence: backend/target/surefire-reports and frontend/test-results (JSON, screenshots and traces). Detailed outcomes: test-results.json. All target fixtures remain passive.
 

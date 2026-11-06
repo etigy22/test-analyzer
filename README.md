@@ -30,6 +30,10 @@ docker compose down
 
 ## Was die Analyse leistet
 
+**Nachweis vom 03.11.2026:** Fünf unveränderte GitHub-Archive erreichen jetzt tatsächlich `COMPLETED`, ohne Scannerfehler, übersprungene Quelldateien oder Ergebnis-Kürzung: [Scan-IDs und vollständige Prüfdaten](docs/FIVE_COMPLETED_SCANS.md).
+
+`COMPLETED` bedeutet: Alle anwendbaren Prüfungen des ausdrücklich angebotenen statischen Umfangs sind abgeschlossen. Verbotene Builds/Compileranalysen und nicht angebotene allgemeine Binäranalysen bleiben als „Außerhalb Prüfumfang“ sichtbar. Echte Scannerfehler, fehlende anwendbare Prüfungen, übersprungene Quelldateien und erreichte Ergebnislimits führen weiterhin zu `PARTIAL`. Historische Berichte werden nicht nachträglich umklassifiziert.
+
 Der enthaltene Source-only-Regelbestand prüft Java, Python, Rust, Swift, JS/TS, C/C++, C#, Go, Kotlin und PHP auf konkrete Sicherheits- und Qualitätsmuster. Hinzu kommen verwaltete Semgrep-Regeln, sprachspezifische Scanner und Trivy mit lokal aktualisierten CVE- und Java-Datenbanken. Der kleine kuratierte Offline-CVE-Bestand bleibt als ergänzender Fallback erhalten.
 
 Das ist **keine umfassende Sicherheitsfreigabe**: Enthalten sind Semgrep, Bandit, Ruff, Cppcheck, Checkstyle, ESLint mit TypeScript-Parser, gofmt, rustfmt, SwiftLint, detekt, PHP_CodeSniffer und Trivy. Compiler-/Build-abhängige Analysen bleiben ausgeschlossen. Unterstützte Lockfiles und bestehende Archive werden offline geprüft; nicht auflösbare oder nicht unterstützte Manifeste werden nicht als vollständig abgedeckt ausgegeben. Keine Kombination statischer Werkzeuge erfasst sämtliche Schwachstellen. Die Oberfläche weist diese Grenzen aus. Beide Projektphasen und sämtliche Abnahmekriterien gelten deshalb noch nicht als vollständig abgenommen. Siehe `TEST_REPORT.md`.
@@ -52,7 +56,7 @@ Für LAN-Zugriff `REPOGUARD_PUBLIC_BASE_URL` und `REPOGUARD_FRONTEND_ORIGIN` in 
 
 **Keine Anmeldung:** Jeder mit Netzwerkzugriff kann Analysen und Berichte sehen. Zugriff per Firewall auf vertrauenswürdige Geräte begrenzen; nicht öffentlich ins Internet stellen. Origin-, Host- und Mutation-Header-Prüfungen schützen Browserzugriffe.
 
-Standardlimits: 200 MB Archiv, 500 MB entpackt, 10 MB pro Datei, 25.000 Einträge, Tiefe 16, Verhältnis 100:1, Download 2 Minuten, Scan 10 Minuten, eine gleichzeitige Analyse, 10.000 Findings. Gelesene Texte sind auf 1 MB je Datei begrenzt; Ausschnitte auf fünf Zeilen zu je 160 Zeichen. Übersprungene Inhalte werden in der Abdeckung ausgewiesen. Compose enthält CPU-, RAM-, Prozess- und tmpfs-Limits.
+Standardlimits: 200 MB Archiv, 500 MB entpackt, 10 MB pro Datei, 25.000 Einträge, Tiefe 16, Verhältnis 100:1, Download 2 Minuten, Scan 10 Minuten, eine gleichzeitige Analyse, 10.000 Findings. Gelesene Texte sind auf 10 MB je Datei begrenzt; Ausschnitte auf fünf Zeilen zu je 160 Zeichen. Übersprungene Inhalte werden in der Abdeckung ausgewiesen. Compose enthält CPU-, RAM-, Prozess- und tmpfs-Limits.
 
 Der verpflichtende Malware-Vorscan ist auf drei Minuten begrenzt (`REPOGUARD_MALWARE_TIMEOUT`). Die gesamte Scanfrist (`REPOGUARD_SCANNER_TIMEOUT`) und das Ergebnislimit (`REPOGUARD_MAX_FINDINGS`) stehen ebenfalls in `.env.example` und werden beim Containerstart übernommen. Ein Timeout blockiert die Codeanalyse weiterhin.
 

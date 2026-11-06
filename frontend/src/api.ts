@@ -1,5 +1,5 @@
 export type Finding = { id: string; category: string; severity: string; ruleId: string; title: string; explanation: string; remediation: string; tool: string; toolVersion: string; language: string; path: string; line: number; fingerprint: string; snippet: { startLine: number; endLine: number; text: string; truncated: boolean } | null };
-export type Coverage = { language: string | null; tool: string; check: string; status: string; reason: string; version: string | null };
+export type Coverage = { applicable?: boolean | null; language: string | null; tool: string; check: string; status: string; reason: string; version: string | null };
 export type Result = { findings: Finding[]; coverage: Coverage[]; languages: { name: string; files: number; bytes: number }[]; archiveSha256: string; archiveBytes: number; rulesVersion: string; malwareVersion: string; truncated: boolean; durationMillis: number };
 export type Scan = { id: string; sourceType: string; source: string; status: string; createdAt: string; updatedAt: string; completedAt: string | null; failureCode: string | null; failureMessage: string | null; result: Result | null };
 export type Ready = { ready: boolean; version: string | null; updatedAt: string | null; message: string };

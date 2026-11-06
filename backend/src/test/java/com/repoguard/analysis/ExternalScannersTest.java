@@ -12,6 +12,13 @@ import static org.mockito.Mockito.*;
 
 class ExternalScannersTest {
     @TempDir Path root;
+    @Test void byteBoundedBatchesRetainEveryFileIncludingLargeInputs() throws Exception {
+        Path small=root.resolve("small.js"),large=root.resolve("large.js"),last=root.resolve("last.ts");
+        Files.writeString(small,"x".repeat(6));Files.writeString(large,"x".repeat(50));Files.writeString(last,"x".repeat(6));
+        var batches=ExternalScanners.inputBatches(List.of(small,large,last),16,10);
+        assertThat(batches).hasSize(3);assertThat(batches.stream().flatMap(List::stream).toList()).containsExactly(small,large,last);
+        assertThat(ExternalScanners.inputBatches(List.of(small,last),1,100)).hasSize(2);
+    }
     @Test void rustfmtSourceDiffContainingErrorTextIsNotAParserFailure() {
         assertThat(ExternalScanners.rustParseFailed("Diff in source.rs:1:\n-println!(\"error: example\");\n+    println!(\"error: example\");")).isFalse();
         assertThat(ExternalScanners.rustParseFailed("error: expected expression\n --> source.rs:1:1")).isTrue();

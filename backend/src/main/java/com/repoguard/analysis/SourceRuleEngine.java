@@ -16,7 +16,7 @@ import static com.repoguard.model.LanguageGroup.*;
 /** Coordinates bounded source rules and managed static scanners without executing target code or configuration. */
 @Component
 public class SourceRuleEngine {
-    public static final String VERSION = "repoguard-source-2026.11.03.1";
+    public static final String VERSION = "repoguard-source-2026.11.03.3";
     record Rule(String id, LanguageGroup language, String category, String severity, Pattern pattern,
                 String title, String explanation, String remediation) { }
     private final RuntimeSettings settings;
@@ -42,17 +42,18 @@ public class SourceRuleEngine {
         Set<String> fingerprints = new HashSet<>();
         List<Coverage> coverage = new ArrayList<>();
         int skipped = 0;
+        int binaryAssets = 0;
         for (Path file : files) {
             Workspace.checkDeadline(deadline);
             String path = logicalRoot.relativize(file).toString().replace('\\', '/');
             LanguageGroup language = LanguageGroup.fromPath(path).orElse(UNKNOWN);
             long[] count = languages.computeIfAbsent(language, ignored -> new long[2]);
             count[0]++; count[1] += Files.size(file);
-            if (Files.size(file) > settings.maxTextBytes) { skipped++; continue; }
+            if (Files.size(file) > settings.maxTextBytes) { if(language==UNKNOWN && path.toLowerCase(Locale.ROOT).matches(".*\\.(png|jpg|jpeg|gif|ico|webp|woff2?|ttf|otf|pdf|jar|class|dll|exe|so|dylib|a|o|pdb|zip|gz|bz2|7z)$"))binaryAssets++;else skipped++; continue; }
             byte[] bytes = Files.readAllBytes(file);
             boolean binary = false;
             for (byte value : bytes) if (value == 0) { binary = true; break; }
-            if (binary) { skipped++; continue; }
+            if (binary) { if(language==UNKNOWN)binaryAssets++;else skipped++; continue; }
             String text;
             try { text = StandardCharsets.UTF_8.newDecoder().decode(java.nio.ByteBuffer.wrap(bytes)).toString(); }
             catch (java.nio.charset.CharacterCodingException ex) { skipped++; continue; }
@@ -81,14 +82,14 @@ public class SourceRuleEngine {
         boolean truncated = findings.truncated();
         for (LanguageGroup language : languages.keySet()) {
             if (language == UNKNOWN) {
-                coverage.add(new Coverage(language.displayName(), "RepoGuard", "Language-specific rules", "UNSUPPORTED", "Only generic text checks apply to unknown file types.", VERSION));
+                coverage.add(new Coverage(language.displayName(), "RepoGuard", "Additional language parsers", "UNSUPPORTED", "The supported AST language scope is the declared ten language groups. Other readable files still receive generic secret, configuration and manifest checks.", VERSION,false));
                 continue;
             }
             for (String check : List.of("SECURITY", "QUALITY"))
                 coverage.add(new Coverage(language.displayName(), "RepoGuard", check, truncated || !readable.contains(language) ? "SKIPPED" : "COMPLETED",
                         !readable.contains(language) ? "No readable UTF-8 source within the text limit." : truncated ? "Finding limit reached; results are incomplete." : "Bundled language-specific text rules ran. No syntax, type or interprocedural data-flow analysis.", VERSION));
             coverage.add(new Coverage(language.displayName(), "RepoGuard", "Compiler/build-dependent analysis", "UNSUPPORTED",
-                    "Checks requiring target compilation, dependency installation or executable project plugins are prohibited.", null));
+                    "Checks requiring target compilation, dependency installation or executable project plugins are prohibited and are not part of the requested static scan.", null,false));
         }
         coverage.add(new Coverage(null, "RepoGuard", "Secrets and configuration", truncated ? "SKIPPED" : "COMPLETED",
                 "Bounded text patterns; all stored literals and sensitive assignments are masked.", VERSION));
@@ -96,6 +97,7 @@ public class SourceRuleEngine {
                 "Small bundled advisory set for exact npm, pip and Maven versions only. Other ecosystems, version ranges, transitive resolution and comprehensive CVE coverage are UNSUPPORTED.", DependencyInspector.VERSION));
         if (skipped > 0) coverage.add(new Coverage(null, "RepoGuard", "Unread source content", "SKIPPED",
                 skipped + " files were binary, not UTF-8, or larger than the configured text limit.", VERSION));
+        if(binaryAssets>0)coverage.add(new Coverage(null,"RepoGuard","Non-source binary payloads","UNSUPPORTED",binaryAssets+" non-source binary files have no UTF-8 source-rule pass. They remain subject to the mandatory archive malware scan and supported Trivy analysis; this does not claim general binary analysis.",VERSION,false));
         coverage.add(new Coverage(null, "ClamAV", "Mandatory malware pre-scan", "COMPLETED",
                 "Signed local signatures were used. This is not a guarantee of malware freedom.", malwareVersion));
         if(external!=null) {

@@ -31,7 +31,7 @@ public class PdfReport {
             paragraph(document, "SHA-256: " + result.archiveSha256() + "\nRules: " + result.rulesVersion() + "\nClamAV: " + result.malwareVersion(), body);
             paragraph(document, de ? "Prüfabdeckung" : "Scanner coverage", heading);
             for (Coverage check : result.coverage()) paragraph(document,
-                    check.status() + " · " + check.tool() + " · " + (check.language() == null ? "General" : check.language())
+                    (Boolean.FALSE.equals(check.applicable()) ? (de ? "Außerhalb des statischen Prüfumfangs" : "Outside static scan scope") : check.status()) + " · " + check.tool() + " · " + (check.language() == null ? "General" : check.language())
                             + " · " + check.check() + "\n" + check.reason(), body);
             paragraph(document, "Findings (" + result.findings().size() + ")", heading);
             for (Finding finding : result.findings()) {

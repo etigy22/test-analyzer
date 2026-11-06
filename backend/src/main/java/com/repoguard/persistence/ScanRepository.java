@@ -31,7 +31,7 @@ public class ScanRepository {
     public void finish(UUID id, Result result) {
         try {
             jdbc.update("insert into scan_results(scan_id,result_json) values(?,?)", id, json.writeValueAsString(result));
-            boolean limited = result.truncated() || result.coverage().stream().anyMatch(c -> !c.status().equals("COMPLETED"));
+            boolean limited = result.truncated() || result.coverage().stream().anyMatch(Coverage::incomplete);
             jdbc.update("update scan_jobs set status=?,updated_at=now(),completed_at=now() where id=?", limited ? "PARTIAL" : "COMPLETED", id);
         } catch (JsonProcessingException ex) { throw new IllegalStateException("Cannot encode analysis results.", ex); }
     }

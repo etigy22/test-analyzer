@@ -10,6 +10,8 @@ foreach($file in Get-ChildItem (Join-Path $ProjectRoot 'backend/target/surefire-
 }
 $browser=Get-Content -Raw (Join-Path $ProjectRoot 'frontend/test-results/e2e-results.json')|ConvertFrom-Json
 $result=@{generatedAt=(Get-Date).ToUniversalTime().ToString('o');releaseReady=$false;tests=$entries;browser=$browser}
+$completePath=Join-Path $ProjectRoot 'docs/test-evidence/completed-static-scans/results.json'
+if(Test-Path $completePath){$result.completedStaticScans=Get-Content -Raw $completePath|ConvertFrom-Json}
 $realPath=Join-Path $ProjectRoot 'docs/test-evidence/real-repositories/results.json'
 if(Test-Path (Join-Path $ProjectRoot 'docs/test-evidence/real-repositories-v3/results.json')){$realPath=Join-Path $ProjectRoot 'docs/test-evidence/real-repositories-v3/results.json'}
 if(Test-Path $realPath){$result.realRepositoryTests=Get-Content -Raw $realPath|ConvertFrom-Json}
@@ -21,12 +23,15 @@ $utf8=New-Object System.Text.UTF8Encoding($false)
 [IO.File]::WriteAllText((Join-Path $ProjectRoot 'test-results.json'),($result|ConvertTo-Json -Depth 50),$utf8)
 $pass=@($entries|Where-Object status -eq 'PASS').Count
 $fail=@($entries|Where-Object status -eq 'FAIL').Count
+$scopeSummary=if($result.ContainsKey('completedStaticScans')){"Real original GitHub scans with persisted COMPLETED and zero applicable gaps: $($result.completedStaticScans.passed). Evidence and scope explanation: docs/FIVE_COMPLETED_SCANS.md."}else{'No completed-static-scan evidence recorded.'}
 $text=@"
 # RepoGuard test report
 
 Generated: $($result.generatedAt)
 
 Backend: $pass PASS, $fail FAIL. Browser: $($browser.stats.expected) passed, $($browser.stats.unexpected) failed, $($browser.stats.skipped) skipped.
+
+$scopeSummary
 
 Evidence: backend/target/surefire-reports and frontend/test-results (JSON, screenshots and traces). Detailed outcomes: test-results.json. All target fixtures remain passive.
 

@@ -23,13 +23,14 @@ public class ExternalScanners {
     ExternalScanners(ObjectMapper json, RuntimeSettings settings, java.util.function.Predicate<Path> installed) { this.json=json;this.settings=settings;this.installed=installed; }
     public Batch analyze(Path source, Set<String> languages, long deadline, Path workspace) throws java.io.IOException {
         BoundedFindings findings=new BoundedFindings(settings.maxFindings); List<Coverage> coverage=new ArrayList<>();
+        Map<Path,List<String>> snippets=new LinkedHashMap<>(4,0.75f,true){@Override protected boolean removeEldestEntry(Map.Entry<Path,List<String>> entry){return size()>3;}};
         Path state=Files.createDirectory(workspace.resolve("tool-state"));
         if(languages.contains("Swift"))run("SwiftLint","Swift","QUALITY",List.of("/opt/swiftlint/ld-linux-x86-64.so.2","--library-path","/opt/swiftlint","/opt/swiftlint/swiftlint","lint","--config","/etc/repoguard/scanners/swiftlint.yaml","--no-cache","--quiet","--reporter","json",source.toString()),state,deadline,coverage,output -> {
-            for(JsonNode f:json.readTree(output))add(findings,source,f.path("file").asText(),f.path("line").asInt(),f.path("rule_id").asText(),"QUALITY","MEDIUM","SwiftLint");
+            for(JsonNode f:json.readTree(output))add(findings,source,snippets,f.path("file").asText(),f.path("line").asInt(),f.path("rule_id").asText(),"QUALITY","MEDIUM","SwiftLint");
         });
-        run("Semgrep",null,"Managed AST security rules",List.of("/opt/repoguard/bin/semgrep","scan","--config","/etc/repoguard/scanners/semgrep.yaml","--metrics=off","--disable-version-check","--no-git-ignore","--x-ignore-semgrepignore-files","--disable-nosem","--json","--quiet","--jobs=1","--timeout=5",source.toString()),state,deadline,coverage,output -> {
+        run("Semgrep",null,"Managed AST security rules",List.of("/opt/repoguard/bin/semgrep","scan","--config","/etc/repoguard/scanners/semgrep.yaml","--metrics=off","--disable-version-check","--no-git-ignore","--x-ignore-semgrepignore-files","--disable-nosem","--json","--quiet","--jobs=1","--timeout=30","--max-target-bytes="+settings.maxTextBytes,source.toString()),state,deadline,coverage,output -> {
             JsonNode report=json.readTree(output);
-            for(JsonNode f:report.path("results"))add(findings,source,f.path("path").asText(),f.path("start").path("line").asInt(),f.path("check_id").asText(),"SECURITY","HIGH","Semgrep");
+            for(JsonNode f:report.path("results"))add(findings,source,snippets,f.path("path").asText(),f.path("start").path("line").asInt(),f.path("check_id").asText(),"SECURITY","HIGH","Semgrep");
             if(report.path("errors").size()>0) {
                 int diagnosticCount=0;
                 for(JsonNode error:report.path("errors")) {
@@ -59,46 +60,64 @@ public class ExternalScanners {
                 run("rustfmt","Rust","QUALITY (edition "+group.getKey()+", batch "+(offset/64+1)+")",command,state,deadline,coverage,output -> {
                     if(rustParseFailed(output))throw new AnalysisException("RUST_PARSE_FAILED","Rust parser rejected input with edition "+group.getKey()+". No Cargo/build or project rustfmt configuration was invoked.");
                     var match=java.util.regex.Pattern.compile("Diff in ([^\\n]+?):([0-9]+):").matcher(output);
-                    while(match.find())add(findings,source,match.group(1),Integer.parseInt(match.group(2)),"format","QUALITY","LOW","rustfmt");
+                    while(match.find())add(findings,source,snippets,match.group(1),Integer.parseInt(match.group(2)),"format","QUALITY","LOW","rustfmt");
                 });
             }
         }
-        if(languages.contains("JavaScript/TypeScript")) run("ESLint","JavaScript/TypeScript","SECURITY / QUALITY",List.of("/usr/local/bin/node","/opt/eslint/node_modules/eslint/bin/eslint.js","--no-config-lookup","--config","/etc/repoguard/scanners/eslint.config.mjs","--no-ignore","--no-inline-config","--no-error-on-unmatched-pattern","--format","json","--ext",".js,.jsx,.ts,.tsx,.mjs,.cjs",source.toString()),source,deadline,coverage,output -> {
+        if(languages.contains("JavaScript/TypeScript")) {
+          List<Path> inputs;
+          try(var files=Files.walk(source)){inputs=files.filter(Files::isRegularFile).filter(f->f.toString().toLowerCase(Locale.ROOT).matches(".*\\.(js|jsx|ts|tsx|mjs|cjs)$")).sorted().toList();}
+          int batchIndex=0;
+          for(List<Path> batch:inputBatches(inputs,16,262144)) {
+            List<String> command=new ArrayList<>(List.of("/usr/local/bin/node","--max-old-space-size=1536","/opt/eslint/node_modules/eslint/bin/eslint.js","--no-config-lookup","--config","/etc/repoguard/scanners/eslint.config.mjs","--no-ignore","--no-inline-config","--no-error-on-unmatched-pattern","--format","json"));
+            batch.forEach(file->command.add(file.toString()));
+            run("ESLint","JavaScript/TypeScript","SECURITY / QUALITY batch "+(++batchIndex),command,source,deadline,coverage,output -> {
             JsonNode files=json.readTree(output);
             if(!files.isArray() || files.isEmpty())throw new AnalysisException("ESLINT_NO_FILES","No input files were analyzed.");
+            int failedInputs=0;
             for(JsonNode file:files) for(JsonNode error:file.path("messages")) {
+                if(error.path("fatal").asBoolean() || error.path("message").asText().startsWith("File ignored")) {
+                    failedInputs++;
+                    coverage.add(new Coverage("JavaScript/TypeScript","ESLint","Input parsing","FAILED","Managed parser did not analyze "+confinedPath(source,file.path("filePath").asText())+":"+error.path("line").asInt()+". Raw messages/source are not stored.",null));
+                }
                 String rule=error.path("ruleId").asText("parse-error");
                 boolean security=Set.of("no-eval","no-implied-eval","no-new-func","no-script-url").contains(rule);
-                add(findings,source,file.path("filePath").asText(),error.path("line").asInt(),rule,security?"SECURITY":"QUALITY",security?"HIGH":"LOW","ESLint");
+                add(findings,source,snippets,file.path("filePath").asText(),error.path("line").asInt(),rule,security?"SECURITY":"QUALITY",security?"HIGH":"LOW","ESLint");
             }
-        });
+            if(failedInputs>0)throw new AnalysisException("ESLINT_INPUT_FAILURE",failedInputs+" inputs could not be fully analyzed; parsed findings retained.");
+            });
+          }
+        }
         if(languages.contains("Kotlin")) run("detekt","Kotlin","QUALITY",List.of("/opt/java/openjdk/bin/java","-jar","/opt/detekt/cli.jar","--input",source.toString(),"--base-path",source.toString(),"--config","/etc/repoguard/scanners/detekt.yaml","--build-upon-default-config","--report","sarif:"+state.resolve("detekt.sarif")),state,deadline,coverage,output -> {
             Path report=state.resolve("detekt.sarif");if(Files.size(report)>16*1024*1024)throw new java.io.IOException("Report too large");
             for(JsonNode scan:json.readTree(Files.readString(report)).path("runs")) for(JsonNode result:scan.path("results")) for(JsonNode location:result.path("locations")) {
                 JsonNode physical=location.path("physicalLocation");String uri=physical.path("artifactLocation").path("uri").asText();
                 String path=uri.startsWith("file:")?Path.of(java.net.URI.create(uri)).toString():java.net.URI.create(uri).getPath();
-                add(findings,source,path,physical.path("region").path("startLine").asInt(),result.path("ruleId").asText(),"QUALITY","LOW","detekt");
+                add(findings,source,snippets,path,physical.path("region").path("startLine").asInt(),result.path("ruleId").asText(),"QUALITY","LOW","detekt");
             }
         });
         if(languages.contains("Java")) run("Checkstyle","Java","QUALITY",List.of("/opt/java/openjdk/bin/java","-cp","/opt/checkstyle/lib/*","com.puppycrawl.tools.checkstyle.Main","-c","/etc/repoguard/scanners/checkstyle.xml","-f","xml",source.toString()),state,deadline,coverage,output -> {
             var factory=DocumentBuilderFactory.newInstance();factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl",true);
             int start=output.indexOf("<?xml");if(start<0)start=output.indexOf("<checkstyle");
             var files=factory.newDocumentBuilder().parse(new ByteArrayInputStream(output.substring(start).getBytes(StandardCharsets.UTF_8))).getElementsByTagName("file");
-            for(int i=0;i<files.getLength();i++) {var file=(org.w3c.dom.Element)files.item(i);var errors=file.getElementsByTagName("error");for(int j=0;j<errors.getLength();j++){var error=(org.w3c.dom.Element)errors.item(j);add(findings,source,file.getAttribute("name"),Integer.parseInt(error.getAttribute("line")),error.getAttribute("source"),"QUALITY","LOW","Checkstyle");}}
+            for(int i=0;i<files.getLength();i++) {var file=(org.w3c.dom.Element)files.item(i);var errors=file.getElementsByTagName("error");for(int j=0;j<errors.getLength();j++){var error=(org.w3c.dom.Element)errors.item(j);add(findings,source,snippets,file.getAttribute("name"),Integer.parseInt(error.getAttribute("line")),error.getAttribute("source"),"QUALITY","LOW","Checkstyle");}}
         });
         if(languages.contains("Go")) run("gofmt","Go","QUALITY",List.of("/usr/bin/gofmt","-l",source.toString()),state,deadline,coverage,output -> {
-            for(String file:output.lines().toList())if(!file.isBlank())add(findings,source,file,0,"format","QUALITY","LOW","gofmt");
+            for(String file:output.lines().toList())if(!file.isBlank())add(findings,source,snippets,file,0,"format","QUALITY","LOW","gofmt");
         });
         if(languages.contains("PHP")) run("PHP_CodeSniffer","PHP","QUALITY",List.of("/opt/phpcs/vendor/bin/phpcs","--standard=/etc/repoguard/scanners/phpcs.xml","--ignore-annotations","--report=json",source.toString()),state,deadline,coverage,output -> {
-            var files=json.readTree(output).path("files").fields();while(files.hasNext()){var file=files.next();for(JsonNode error:file.getValue().path("messages"))add(findings,source,file.getKey(),error.path("line").asInt(),error.path("source").asText(),"QUALITY","LOW","PHP_CodeSniffer");}
+            var files=json.readTree(output).path("files").fields();while(files.hasNext()){var file=files.next();for(JsonNode error:file.getValue().path("messages"))add(findings,source,snippets,file.getKey(),error.path("line").asInt(),error.path("source").asText(),"QUALITY","LOW","PHP_CodeSniffer");}
         });
         if(languages.contains("Python")) {
             run("Bandit", "Python", "SECURITY", List.of("/opt/repoguard/bin/bandit","-r",source.toString(),"-f","json","-q","--ignore-nosec","--ini","/etc/repoguard/scanners/bandit.ini","-c","/etc/repoguard/scanners/bandit.yaml"),state,deadline,coverage,output -> {
-                for(JsonNode f:json.readTree(output).path("results")) add(findings,source,f.path("filename").asText(),f.path("line_number").asInt(),f.path("test_id").asText(),"SECURITY",f.path("issue_severity").asText(),"Bandit");
+                for(JsonNode f:json.readTree(output).path("results")) add(findings,source,snippets,f.path("filename").asText(),f.path("line_number").asInt(),f.path("test_id").asText(),"SECURITY",f.path("issue_severity").asText(),"Bandit");
                 if(json.readTree(output).path("errors").size()>0)throw new AnalysisException("BANDIT_PARTIAL","Some Python inputs could not be analyzed.");
             });
-            run("Ruff", "Python", "QUALITY", List.of("/opt/repoguard/bin/ruff","check","--isolated","--no-cache","--no-respect-gitignore","--output-format","json","--select","ALL",source.toString()),state,deadline,coverage,output -> {
-                for(JsonNode f:json.readTree(output)) add(findings,source,f.path("filename").asText(),f.path("location").path("row").asInt(),f.path("code").asText(),"QUALITY","LOW","Ruff");
+            run("Ruff", "Python", "QUALITY", List.of("/opt/repoguard/bin/ruff","check","--isolated","--no-cache","--no-respect-gitignore","--output-format","concise","--select","ALL",source.toString()),state,deadline,coverage,output -> {
+                var diagnostics=java.util.regex.Pattern.compile("(?m)^(.+?):([0-9]+):([0-9]+):\\s+([A-Z][A-Z0-9]*|invalid-syntax)\\b").matcher(output);
+                int count=0;
+                while(diagnostics.find()){count++;add(findings,source,snippets,diagnostics.group(1),Integer.parseInt(diagnostics.group(2)),diagnostics.group(4),"QUALITY","LOW","Ruff");}
+                if(count==0 && !output.contains("All checks passed"))throw new AnalysisException("RUFF_OUTPUT_UNKNOWN","Ruff output was not a recognized concise diagnostic report.");
             });
         }
         if(languages.contains("C/C++")) {
@@ -113,7 +132,7 @@ public class ExternalScanners {
                 var error=(org.w3c.dom.Element)errors.item(i);var locations=error.getElementsByTagName("location");if(locations.getLength()==0)continue;
                 var location=(org.w3c.dom.Element)locations.item(0);String severity=error.getAttribute("severity");
                 int line;try{line=Integer.parseInt(location.getAttribute("line"));}catch(NumberFormatException invalid){line=0;}
-                add(findings,source,location.getAttribute("file"),line,error.getAttribute("id"),severity.equals("error")?"SECURITY":"QUALITY",severity.equals("error")?"HIGH":"LOW","Cppcheck");
+                add(findings,source,snippets,location.getAttribute("file"),line,error.getAttribute("id"),severity.equals("error")?"SECURITY":"QUALITY",severity.equals("error")?"HIGH":"LOW","Cppcheck");
             }
             });
         }
@@ -134,12 +153,12 @@ public class ExternalScanners {
                     for(JsonNode f:result.path("Vulnerabilities")) {
                         String target=result.path("Target").asText();
                         if(!Files.isRegularFile(source.resolve(target)))target=f.path("PkgPath").asText(target);
-                        add(findings,source,target,0,f.path("VulnerabilityID").asText(),"DEPENDENCY",f.path("Severity").asText(),"Trivy");
+                        add(findings,source,snippets,target,0,f.path("VulnerabilityID").asText(),"DEPENDENCY",f.path("Severity").asText(),"Trivy");
                     }
-                    for(JsonNode f:result.path("Secrets")) add(findings,source,result.path("Target").asText(),f.path("StartLine").asInt(),f.path("RuleID").asText(),"SECRET",f.path("Severity").asText(),"Trivy");
+                    for(JsonNode f:result.path("Secrets")) add(findings,source,snippets,result.path("Target").asText(),f.path("StartLine").asInt(),f.path("RuleID").asText(),"SECRET",f.path("Severity").asText(),"Trivy");
                 }
             });
-            coverage.add(new Coverage(null,"Trivy","Dependency coverage limits","UNSUPPORTED","Offline manifest/lockfile and existing archive analysis only. No dependency installation, build, remote resolution or executable repository configuration. Unsupported manifests remain outside coverage.",null));
+            coverage.add(new Coverage(null,"Trivy","Dependency coverage limits","UNSUPPORTED","Offline manifest/lockfile and existing archive analysis only. No dependency installation, build, remote resolution or executable repository configuration. These general exclusions are outside the requested static scope, not evidence that an applicable check ran.",null,false));
         }
         if(findings.truncated())coverage.add(new Coverage(null,"RepoGuard","Scanner result limit","SKIPPED","Managed scanner results exceeded the finding limit; highest severity results were retained.",null));
         Map<String,String> versions=new HashMap<>();for(Coverage check:coverage)if(check.version()!=null)versions.put(check.tool(),check.version());
@@ -170,6 +189,11 @@ public class ExternalScanners {
         return active;
     }
     @FunctionalInterface private interface Parse { void parse(String output) throws Exception; }
+    static List<List<Path>> inputBatches(List<Path> files,int maxFiles,long maxBytes) throws java.io.IOException {
+        List<List<Path>> batches=new ArrayList<>();List<Path> batch=new ArrayList<>();long bytes=0;
+        for(Path file:files){long size=Files.size(file);if(!batch.isEmpty() && (batch.size()>=maxFiles || size>maxBytes-bytes)){batches.add(List.copyOf(batch));batch.clear();bytes=0;}batch.add(file);bytes+=size;}
+        if(!batch.isEmpty())batches.add(List.copyOf(batch));return batches;
+    }
     static boolean rustParseFailed(String output) {
         return java.util.regex.Pattern.compile("(?m)^error(?:\\[E[0-9]+\\])?:").matcher(output).find();
     }
@@ -179,12 +203,12 @@ public class ExternalScanners {
         if(remaining<1000){coverage.add(new Coverage(language,tool,check,"SKIPPED","Job time budget exhausted.",null));return;}
         String version=null;
         try {
-            List<String> versionCommand=tool.equals("gofmt")?List.of("/usr/bin/go","version"):tool.equals("ESLint")?List.of(command.get(0),command.get(1),"--version"):tool.equals("detekt")?List.of(command.get(0),"-jar",command.get(2),"--version"):List.of(command.getFirst(),"--version");
+            List<String> versionCommand=tool.equals("gofmt")?List.of("/usr/bin/go","version"):tool.equals("ESLint")?List.of("/usr/local/bin/node","/opt/eslint/node_modules/eslint/bin/eslint.js","--version"):tool.equals("detekt")?List.of(command.get(0),"-jar",command.get(2),"--version"):List.of(command.getFirst(),"--version");
             if(tool.equals("SwiftLint")){versionCommand=new ArrayList<>(command.subList(0,4));versionCommand.add("--version");}
             if(tool.equals("Checkstyle")){versionCommand=new ArrayList<>(command.subList(0,4));versionCommand.add("--version");}
             var v=TrustedProcess.run(versionCommand,state,Duration.ofSeconds(5));
             version=v.text().lines().filter(line -> !line.startsWith("Picked up JAVA_TOOL_OPTIONS")).findFirst().orElse(tool);if(version.length()>128)version=version.substring(0,128);
-            var output=TrustedProcess.run(command,state,Duration.ofMillis(Math.min(90000,remaining)),16*1024*1024);
+            var output=TrustedProcess.run(command,state,Duration.ofMillis(Math.min(tool.equals("Semgrep")?180000:90000,remaining)),16*1024*1024);
             if(output.exit()!=0 && !(output.exit()==1 && Set.of("Bandit","Ruff","ESLint","rustfmt").contains(tool))
                     && !(tool.equals("detekt") && output.exit()==2)
                     && !(tool.equals("SwiftLint") && output.exit()==2)
@@ -207,7 +231,7 @@ public class ExternalScanners {
         }
         return "no raw diagnostics persisted";
     }
-    private void add(BoundedFindings output,Path source,String raw,int line,String rule,String category,String severity,String tool) throws java.io.IOException {
+    private void add(BoundedFindings output,Path source,Map<Path,List<String>> snippets,String raw,int line,String rule,String category,String severity,String tool) throws java.io.IOException {
         Path path;
         try {path=Path.of(raw);if(!path.isAbsolute())path=source.resolve(path);path=path.normalize();}catch(Exception invalid){return;}
         if(!path.startsWith(source) || !Files.isRegularFile(path,LinkOption.NOFOLLOW_LINKS))return;
@@ -217,10 +241,10 @@ public class ExternalScanners {
         Snippet snippet=null;
         if(line>0 && Files.size(path)<=settings.maxTextBytes){
             List<String> lines;
-            try{lines=Files.readAllLines(path);}catch(Exception invalid){lines=List.of();}
+            lines=snippets.get(path);if(lines==null){try{lines=Files.readAllLines(path);}catch(Exception invalid){lines=List.of();}snippets.put(path,lines);}
             if(line<=lines.size()) {
                 int start=Math.max(0,line-1-settings.snippetLines/2),end=Math.min(lines.size(),start+settings.snippetLines);StringBuilder text=new StringBuilder();
-                for(int i=start;i<end;i++){if(!text.isEmpty())text.append('\n');String masked=SecretMasker.mask(lines.get(i));text.append(masked.substring(0,Math.min(masked.length(),settings.snippetLineLength)));}
+                for(int i=start;i<end;i++){if(!text.isEmpty())text.append('\n');String masked=SecretMasker.mask(lines.get(i).substring(0,Math.min(2048,lines.get(i).length())));text.append(masked.substring(0,Math.min(masked.length(),settings.snippetLineLength)));}
                 snippet=new Snippet(start+1,end,text.toString(),true);
             }
         }

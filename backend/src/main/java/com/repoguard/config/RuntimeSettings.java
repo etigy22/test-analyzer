@@ -14,7 +14,7 @@ public class RuntimeSettings {
     @Value("${repoguard.clamscan:/usr/bin/clamscan}") public String clamscan;
     @Value("${repoguard.freshclam:/usr/bin/freshclam}") public String freshclam;
     @Value("${repoguard.max-findings:10000}") public int maxFindings;
-    @Value("${repoguard.max-text-bytes:1048576}") public long maxTextBytes;
+    @Value("${repoguard.max-text-bytes:10485760}") public long maxTextBytes;
     @Value("${repoguard.snippet-lines:5}") public int snippetLines;
     @Value("${repoguard.snippet-line-length:160}") public int snippetLineLength;
     @Value("${repoguard.history-days:90}") public int historyDays;

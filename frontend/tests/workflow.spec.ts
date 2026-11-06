@@ -30,7 +30,7 @@ test('E2E-03/04/06: real ZIP scan, ten languages, filters, masked details and PD
   await page.locator('.finding-row').first().click();await expect(page.getByRole('dialog')).toBeVisible();
   expect(await page.getByRole('dialog').textContent()).not.toContain('sensitive-secret-example-123456');
   await page.keyboard.press('Escape');await expect(page.getByRole('dialog')).not.toBeVisible();
-  await page.getByRole('tab',{name:/Prüfabdeckung/}).click();await expect(page.locator('.coverage-row').filter({hasText:'Nicht unterstützt'}).first()).toBeVisible();
+  await page.getByRole('tab',{name:/Prüfabdeckung/}).click();await expect(page.locator('.coverage-row').filter({hasText:'Außerhalb Prüfumfang'}).first()).toBeVisible();
   const pdf=await request.get(`/api/scans/${firstId}/report.pdf?locale=de`);expect(pdf.status()).toBe(200);expect(pdf.headers()['content-type']).toContain('application/pdf');
   const buffer=await pdf.body();expect(buffer.subarray(0,5).toString()).toBe('%PDF-');await test.info().attach('report.pdf',{body:buffer,contentType:'application/pdf'});
   await page.screenshot({path:'test-results/report-desktop.png',fullPage:true});
