@@ -16,7 +16,7 @@ import static com.repoguard.model.LanguageGroup.*;
 /** Coordinates bounded source rules and managed static scanners without executing target code or configuration. */
 @Component
 public class SourceRuleEngine {
-    public static final String VERSION = "repoguard-source-2026.11.03.3";
+    public static final String VERSION = "repoguard-source-2026.11.11.1";
     record Rule(String id, LanguageGroup language, String category, String severity, Pattern pattern,
                 String title, String explanation, String remediation) { }
     private final RuntimeSettings settings;
@@ -59,12 +59,29 @@ public class SourceRuleEngine {
             catch (java.nio.charset.CharacterCodingException ex) { skipped++; continue; }
             readable.add(language);
             String[] lines = text.split("\\R", -1);
+            SourceContext context = new SourceContext(text, language, deadline);
+            Map<String,Set<Integer>> executableMatches = new HashMap<>();
+            String executable = context.executableCode();
+            for (Rule rule : rules) {
+                if ((rule.language == null || rule.language == language) && !Set.of("RG-SQL-CONCAT","RG-SECRET","RG-SECRET-DATA").contains(rule.id)
+                        && !rule.category.equals("CONFIGURATION")) {
+                    Set<Integer> matchedLines = new HashSet<>();
+                    var matcher = rule.pattern.matcher(executable);
+                    while (matcher.find()) {
+                        Workspace.checkDeadline(deadline);
+                        int location=matcher.start();
+                        while(location<matcher.end() && Character.isWhitespace(executable.charAt(location)))location++;
+                        matchedLines.add(context.sourceLine(location));
+                    }
+                    executableMatches.put(rule.id, matchedLines);
+                }
+            }
             for (int index = 0; index < lines.length; index++) {
                 Workspace.checkDeadline(deadline);
                 String line = lines[index];
                 String bounded = line.substring(0, Math.min(2048, line.length()));
                 for (Rule rule : rules) {
-                    if ((rule.language == null || rule.language == language) && rule.pattern.matcher(bounded).find())
+                    if ((rule.language == null || rule.language == language) && matches(rule, context, executableMatches, index, bounded))
                         add(findings, fingerprints, finding(rule.id, rule.category, rule.severity, rule.title,
                                 rule.explanation, rule.remediation, language.displayName(), path, index + 1, lines));
                 }
@@ -87,7 +104,7 @@ public class SourceRuleEngine {
             }
             for (String check : List.of("SECURITY", "QUALITY"))
                 coverage.add(new Coverage(language.displayName(), "RepoGuard", check, truncated || !readable.contains(language) ? "SKIPPED" : "COMPLETED",
-                        !readable.contains(language) ? "No readable UTF-8 source within the text limit." : truncated ? "Finding limit reached; results are incomplete." : "Bundled language-specific text rules ran. No syntax, type or interprocedural data-flow analysis.", VERSION));
+                        !readable.contains(language) ? "No readable UTF-8 source within the text limit." : truncated ? "Finding limit reached; results are incomplete." : "Bundled lexical-context rules ran, excluding inert string/comment content from executable-code checks. SQL construction and credential assignments are contextual heuristics, not AST, type or interprocedural data-flow analysis. No test paths are excluded.", VERSION));
             coverage.add(new Coverage(language.displayName(), "RepoGuard", "Compiler/build-dependent analysis", "UNSUPPORTED",
                     "Checks requiring target compilation, dependency installation or executable project plugins are prohibited and are not part of the requested static scan.", null,false));
         }
@@ -109,6 +126,15 @@ public class SourceRuleEngine {
         List<Language> detected = languages.entrySet().stream().map(e -> new Language(e.getKey().displayName(), (int)e.getValue()[0], e.getValue()[1])).toList();
         return new Result(findings.values(), coverage, detected, archiveHash, archiveBytes, VERSION, malwareVersion, truncated,
                 (System.nanoTime() - start) / 1_000_000);
+    }
+
+    private boolean matches(Rule rule, SourceContext context, Map<String,Set<Integer>> executableMatches, int index, String raw) {
+        if (rule.id.equals("RG-SQL-CONCAT")) return context.sqlAt(index);
+        if (rule.id.equals("RG-SECRET")) return context.secretAt(index);
+        if (rule.id.equals("RG-SECRET-DATA")) return context.embeddedSecretAt(index);
+        // Executable sinks and quality rules use lexical code; configuration checks
+        // retain raw values because quoted configuration is meaningful passive input.
+        return rule.category.equals("CONFIGURATION") ? rule.pattern.matcher(raw).find() : executableMatches.getOrDefault(rule.id, Set.of()).contains(index);
     }
 
     private void add(BoundedFindings list, Set<String> seen, Finding finding) {
@@ -141,7 +167,7 @@ public class SourceRuleEngine {
         catch (NoSuchAlgorithmException impossible) { throw new IllegalStateException(impossible); }
     }
     private static Rule rule(String id, LanguageGroup language, String category, String severity, String regex, String title, String remediation) {
-        return new Rule(id, language, category, severity, Pattern.compile(regex), title,
+        return new Rule(id, language, category, severity, Pattern.compile(regex, Pattern.MULTILINE), title,
                 "A static source pattern matched. Review the context; this rule does not prove exploitability.", remediation);
     }
     private static List<Rule> rules() {
@@ -172,6 +198,10 @@ public class SourceRuleEngine {
         r.add(rule("RG-SQL-CONCAT", null, "SECURITY", "HIGH", "(?i)(SELECT|INSERT|UPDATE|DELETE)[^;]{0,300}(\\+|\\$\\{|%s)", "Potential dynamically constructed SQL", "Use parameterized queries and bound parameters."));
         r.add(rule("RG-PATH-INPUT", null, "SECURITY", "MEDIUM", "(?i)(readFile|open|readString|readAllBytes)\\s*\\([^)]{0,200}(request|params|input)", "Potential untrusted file path", "Resolve against a fixed base directory and reject paths outside it."));
         r.add(rule("RG-SECRET", null, "SECRET", "HIGH", "(?i)(password|passwd|secret|token|api[_-]?key)\\s*[:=]\\s*['\"][^'\"]{6,}|AKIA[A-Z0-9]{16}|gh[pousr]_[A-Za-z0-9]{20,}|BEGIN[^-]{0,30}PRIVATE KEY", "Possible embedded secret", "Remove credentials, rotate exposed secrets and load them from protected runtime configuration."));
+        r.add(new Rule("RG-SECRET-DATA", null, "SECRET", "MEDIUM", Pattern.compile("(?!)"),
+                "Credential-like assignment in passive text",
+                "A credential candidate occurs inside a string, embedded document or code example. It may be synthetic test data, but could still expose a real secret; review the value's origin. No test paths are excluded.",
+                "Verify whether this is synthetic data. If it is a real credential, remove it, rotate it and use protected runtime configuration."));
         r.add(rule("RG-CONFIG-DEBUG", null, "CONFIGURATION", "MEDIUM", "(?i)\\b(debug|allow_debug)\\s*[:=]\\s*(true|1)|NODE_TLS_REJECT_UNAUTHORIZED\\s*=\\s*['\"]?0|verify\\s*=\\s*False|rejectUnauthorized\\s*:\\s*false", "Unsafe debug or TLS configuration", "Disable production debug output and keep TLS certificate verification enabled."));
         return List.copyOf(r);
     }

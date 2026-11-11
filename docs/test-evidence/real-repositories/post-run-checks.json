@@ -1,9 +1,0 @@
-﻿{
-    "verifiedAt":  "2026-11-02T15:03:57.6082899Z",
-    "workerWorkspaceEmpty":  true,
-    "backendWorkspaceAndQuarantineEmpty":  true,
-    "workerDefaultRouteAbsent":  true,
-    "targetConfigMarkerAbsent":  true,
-    "unmaskedFixtureSecretsInStoredResults":  0,
-    "limitation":  "These checks are not a complete process audit, packet capture, independent LAN acceptance or malware-free guarantee."
-}

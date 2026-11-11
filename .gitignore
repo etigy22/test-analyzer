@@ -7,3 +7,7 @@ frontend/playwright-report/
 var/
 .env
 .idea/dbnavigator.xml
+
+# Generated analysis evidence stays local; commit the overview and test summaries.
+/docs/test-evidence/*
+!/docs/test-evidence/README.md

@@ -7,7 +7,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.*;
 
-/** Only fixed, operator-managed scanner binaries may be passed by the two callers. */
+/** Enforces managed executable profiles before starting any scanner or updater. */
 public final class TrustedProcess {
     private TrustedProcess() { }
     public record Output(int exit, String text, String stderr) {
@@ -20,6 +20,7 @@ public final class TrustedProcess {
         return run(command,cwd,timeout,maxOutput,java.util.Map.of());
     }
     public static Output run(List<String> command, Path cwd, Duration timeout, int maxOutput, java.util.Map<String,String> managedEnvironment) throws IOException {
+        ManagedCommandPolicy.validate(command, managedEnvironment);
         ProcessBuilder builder = new ProcessBuilder(command).directory(cwd.toFile()).redirectErrorStream(false);
         builder.environment().clear();
         builder.environment().put("PATH", "/opt/java/openjdk/bin:/usr/bin:/bin");

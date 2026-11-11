@@ -123,3 +123,8 @@ Die gezielt nachgewiesenen Kriterien stehen unten. Insbesondere LAN-/Offline-Net
 ## Verbindliche Prompt-Dokumentation (Ergänzung 2026-11-06)
 
 **DOC-PROMPT-01: teilweise nachgewiesen; Folgesitzung NOT TESTED.** Erstaufnahme der 18 sichtbaren Nutzernachrichten in [PROMPTS.md](../PROMPTS.md) und verbindliche Pflegepflicht in [AGENTS.md](../AGENTS.md) sowie den übrigen Projektdokumenten. Neue projektbezogene Nachrichten sind vor der Bearbeitung nachzutragen. Anhänge nur referenzieren; keine Zugangsdaten oder `.env`-Inhalte übernehmen. Fehlende frühere Historie bleibt als solche gekennzeichnet. Die langfristige Einhaltung ist mit einer späteren Nachricht zu prüfen. Bestehende Produktabnahmekriterien und releaseReady bleiben unverändert.
+
+
+## Ergänzender scoped Nachweis, 2026-11-11
+
+Kontextregeln und Prozesspolicy mit 168 Backend- und 8 Browser-/API-Tests geprüft; aktuelle Selbstanalyse COMPLETED. Dies ändert keine vollständige Kriterienbewertung der älteren Tabelle. releaseReady bleibt false. [Selbstprüfungsbericht](SELF_REVIEW_2026-11-11.md)

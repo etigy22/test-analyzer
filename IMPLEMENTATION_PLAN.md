@@ -154,3 +154,8 @@ Die zehn unveraenderten Originalarchive wurden direkt ueber den regulaeren GitHu
 ## Verbindliche Prompt-Dokumentation (Ergänzung 2026-11-06)
 
 Vor jeder inhaltlichen Bearbeitung einer neuen projektbezogenen Nutzernachricht zuerst den Eintrag in [PROMPTS.md](PROMPTS.md) ergänzen; bei Sitzungsbeginn [AGENTS.md](AGENTS.md) und die verbindlichen Dokumente lesen. Fortlaufende IDs, bekannte Daten und Quellen pflegen, Duplikate vermeiden, Anhänge nur referenzieren und Zugangsdaten ausschließen. Keine `.env`-Inhalte übernehmen. Diese Pflegepflicht ist Bestandteil aller weiteren Umsetzungsschritte.
+
+
+## Umsetzung des Fixplans und Selbstprüfung, 2026-11-11
+
+Umgesetzt: SQL-/Secret-Kontext, Trennung inerter Daten von ausführbaren Mustern, zentrale Scanner-Startpolicy, positive/negative Umgehungs-Gegenproben sowie Selbstscan desselben und des aktuellen Inputs. 168 Backend- und 8 Browser-/API-Tests PASS. Übrige Produktabnahme bleibt offen. [Selbstprüfungsbericht](docs/SELF_REVIEW_2026-11-11.md)

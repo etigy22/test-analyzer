@@ -6340,5 +6340,51 @@
                                   "flaky":  0
                               }
                 },
-    "releaseReady":  false
+    "releaseReady":  false,
+    "selfReview20261111": {
+        "generatedAt": "2026-11-11T11:45:37.014239+00:00",
+        "testedVersion": "repoguard-source-2026.11.11.1",
+        "backend": {
+            "tests": 168,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+        },
+        "browserPassed": 8,
+        "releaseReady": false,
+        "report": "docs/SELF_REVIEW_2026-11-11.md",
+        "evidence": "docs/test-evidence/self-review-2026-11-11/verification-summary.json",
+        "scans": {
+            "before": {
+                "id": "46ab8d23-e5ca-4a93-bdac-cb36ef0e4ce8",
+                "status": "COMPLETED",
+                "archiveSha256": "f26f2fe892d286a211385f4c449548ac078c35f9d5540ec9da6854d6fcf47600",
+                "severities": {
+                    "HIGH": 21,
+                    "MEDIUM": 3,
+                    "LOW": 2061
+                }
+            },
+            "same-input": {
+                "id": "fb1447b2-17a5-4c1f-bf21-3fc57b41f67b",
+                "status": "COMPLETED",
+                "archiveSha256": "f26f2fe892d286a211385f4c449548ac078c35f9d5540ec9da6854d6fcf47600",
+                "severities": {
+                    "HIGH": 2,
+                    "MEDIUM": 5,
+                    "LOW": 2059
+                }
+            },
+            "after": {
+                "id": "c8820098-3b6a-497c-84a4-e3446e2c4916",
+                "status": "COMPLETED",
+                "archiveSha256": "61b743532e0af0ce38d2a06ecc479d2a58067fce9d8aec68b6adb392ceb0c6b4",
+                "severities": {
+                    "HIGH": 2,
+                    "MEDIUM": 11,
+                    "LOW": 2192
+                }
+            }
+        }
+    }
 }

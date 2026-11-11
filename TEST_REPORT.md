@@ -21,3 +21,8 @@ Docker startup and the ClamAV/Trivy security data update succeeded. Installed to
 ## Verbindliche Prompt-Dokumentation (Ergänzung 2026-11-06)
 
 Zusätzliches verbindliches Kriterium DOC-PROMPT-01: [PROMPTS.md](PROMPTS.md) enthält die 18 aktuell verfügbaren Nutzernachrichten und die Pflegepflicht für neue Nachrichten. [AGENTS.md](AGENTS.md) sowie Anforderungen, Abnahmekriterien, Design, Projektzusammenfassung und Umsetzungsplan verweisen auf diese Regel. Die Erstaufnahme wird auf fortlaufende IDs, Vollständigkeit des sichtbaren Verlaufs und fehlende vertrauliche Dateiinhalte geprüft. Die fortlaufende Einhaltung in einer späteren Sitzung ist noch nicht nachgewiesen; dadurch entsteht keine vollständige Produktabnahme.
+
+
+## Selbstprüfung und kontextabhängige Regeln, 2026-11-11
+
+168 Backend-Tests und 8 Browser-/API-Tests bestanden; TypeScript-/Frontend-Build bestanden. Identisches Archiv: HIGH 21 → 2; aktueller Quellstand ebenfalls COMPLETED mit 2 HIGH. Echte Gegenproben in Testdateien bleiben aktiv, eingebettete Credential-Kandidaten bleiben als Review-Befunde sichtbar. Keine vollständige Produktfreigabe. [Selbstprüfungsbericht](docs/SELF_REVIEW_2026-11-11.md)

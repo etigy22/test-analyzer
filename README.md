@@ -83,3 +83,7 @@ Unter **Analysen** können auch fehlgeschlagene und blockierte abgeschlossene Jo
 ## Verbindliche Prompt-Dokumentation (Ergänzung 2026-11-06)
 
 Nutzeraufträge stehen im [Projekt-Promptprotokoll](PROMPTS.md). Neue projektbezogene Nutzernachrichten müssen vor ihrer Bearbeitung nach der dortigen Regel ergänzt werden. [AGENTS.md](AGENTS.md) macht diese Pflicht für künftige Projektarbeit auffindbar. Anhänge werden nur referenziert; Zugangsdaten und `.env`-Inhalte bleiben ausgeschlossen. Es gibt keinen automatischen Chat-Export im Hintergrund.
+
+### Generated test artifacts
+
+Detailed scan evidence under `docs/test-evidence/` is local-only and ignored by Git, alongside backend build reports and frontend test artifacts. Commit the concise `TEST_REPORT.md`, `test-results.json` and acceptance/review summaries. References to raw evidence in those summaries are local paths; a fresh checkout may not contain them. See [local evidence policy](docs/test-evidence/README.md) for regeneration and separate sharing.
