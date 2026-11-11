@@ -30,8 +30,16 @@ WORKDIR /opt/phpcs
 RUN composer require --no-interaction --no-plugins --no-scripts squizlabs/php_codesniffer:4.0.1
 
 FROM ghcr.io/realm/swiftlint:0.62.2 AS swiftlint
-RUN mkdir /opt/bundle && cp /usr/bin/swiftlint /usr/lib/libsourcekitdInProc.so /lib64/ld-linux-x86-64.so.2 /opt/bundle/ \
-    && (ldd /usr/bin/swiftlint; ldd /usr/lib/libsourcekitdInProc.so) | awk '/=> \// {print $3}' | sort -u | xargs -I{} cp -L {} /opt/bundle/
+RUN set -eux; \
+    mkdir /opt/bundle; \
+    cp /usr/bin/swiftlint /usr/lib/libsourcekitdInProc.so /opt/bundle/; \
+    interpreter="$(ldd /usr/bin/swiftlint | awk '/ld-linux/ {print $1; exit}')"; \
+    test -n "$interpreter"; \
+    cp -L "$interpreter" /opt/bundle/ld-linux-x86-64.so.2; \
+    (ldd /usr/bin/swiftlint; ldd /usr/lib/libsourcekitdInProc.so) \
+      | awk '/=> \// {print $3}' \
+      | sort -u \
+      | xargs -r -I{} cp -L {} /opt/bundle/
 
 FROM python:3.12.12-slim-bookworm AS python-scanners
 RUN pip install --no-cache-dir bandit==1.8.6 ruff==0.14.3 semgrep==1.183.0 pydantic==2.11.10 pydantic-settings==2.10.1

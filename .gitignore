@@ -6,3 +6,4 @@ frontend/test-results/
 frontend/playwright-report/
 var/
 .env
+.idea/dbnavigator.xml
