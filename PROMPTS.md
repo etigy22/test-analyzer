@@ -201,3 +201,20 @@ what about the unversioned readme
 ```text
 ok push everything relevant to github
 ```
+
+
+### P028 · 2026-11-11 · Quelle: aktuelle Nutzernachricht
+
+```text
+i did the push
+```
+
+
+### P029 · 2026-11-11 · Quelle: aktuelle Nutzernachricht mit Screenshot
+
+```text
+@`/var/folders/25/c56rn0y93zq1x2t52l1xdbqw0000gn/T/TemporaryItems/NSIRD_screencaptureui_LOR43U/Screenshot 2026-11-11 at 13.21.06.png`
+warum konntest du die beiden nicht lösen?
+```
+
+Anhang: Screenshot der zwei verbleibenden HIGH-Prüfhinweise; ausschließlich als Dateireferenz erfasst.
