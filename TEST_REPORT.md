@@ -26,3 +26,24 @@ Zusätzliches verbindliches Kriterium DOC-PROMPT-01: [PROMPTS.md](PROMPTS.md) en
 ## Selbstprüfung und kontextabhängige Regeln, 2026-11-11
 
 168 Backend-Tests und 8 Browser-/API-Tests bestanden; TypeScript-/Frontend-Build bestanden. Identisches Archiv: HIGH 21 → 2; aktueller Quellstand ebenfalls COMPLETED mit 2 HIGH. Echte Gegenproben in Testdateien bleiben aktiv, eingebettete Credential-Kandidaten bleiben als Review-Befunde sichtbar. Keine vollständige Produktfreigabe. [Selbstprüfungsbericht](docs/SELF_REVIEW_2026-11-11.md)
+
+## Größere Repository-Importe, 2026-11-12
+Lokales Profil: 1 GiB Archiv, 3 GiB entpackt, 100.000 Einträge; Quarantäne-,
+Worker-tmpfs- und Container-RAM-Limits passend erhöht. MalwareScanner leitet seine
+Limits jetzt aus ImportLimits ab; Pflichtvorscan und fail-closed bleiben erhalten.
+Validierung: `docker compose config --quiet` erfolgreich. Offline-Maven:
+MalwareOutcomeTest (3) und GitHubArchiveDownloaderTest (11), 14 Tests ohne Fehler.
+Kein vollständiger Großrepository-Lauf nachgewiesen; keine neue Gesamtfreigabe.
+Aktivierung: `docker compose up -d --build` erfolgreich. Backend, Worker, Updater und
+PostgreSQL healthy; Archiv-/Entpack-/Dateilimits im Worker und Uploadlimit im Backend
+per gezielter printenv-Abfrage bestätigt. ClamAV 1.5.4 vorhanden. Docker-RAM: 7701999616
+Bytes; maximaler Speicherbedarf des großen Profils dadurch nicht abgesichert.
+
+### IntelliJ-Commitprüfung, 2026-11-12
+Die zwei gemeldeten Bytewert-Fehler betrafen Compose-Interpolation in `mem_limit`.
+API/Worker verwenden jetzt die gleichen effektiven RAM-Limits als Literale (2g/8g).
+Die dafür entfallenen Umgebungsvariablen wurden aus lokalem Profil und Beispiel entfernt;
+tmpfs bleibt konfigurierbar. Der Link auf nicht versionierte acceptance-status.json wurde
+in eine Pfadangabe mit Link auf die vorhandene Nachweisdokumentation umgewandelt.
+`docker compose config --quiet` und `git diff --check` erfolgreich; aufgelöste RAM-Limits
+2147483648/8589934592 Bytes bestätigt. IntelliJ-Prüfung selbst nicht erneut beobachtet.

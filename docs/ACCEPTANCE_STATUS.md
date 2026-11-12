@@ -6,7 +6,7 @@ Stand: 2026-11-03T08:19:09.2266298Z
 
 Die gezielt nachgewiesenen Kriterien stehen unten. Insbesondere LAN-/Offline-Netzwerkmitschnitt, Prozess-/Sandbox-Audit, vollstÃ¤ndige Sprach-Einzelabnahme, Restart/Backup, PDF-SichtprÃ¼fung, LizenzprÃ¼fung und System-Schwachstellenbewertung sind dadurch nicht freigegeben.
 
-[Praxistest mit zehn Originalarchiven](REAL_REPOSITORY_ACCEPTANCE.md) Â· [Maschinenlesbare Einzelkriterien](test-evidence/acceptance-status.json)
+[Praxistest mit zehn Originalarchiven](REAL_REPOSITORY_ACCEPTANCE.md) Â· Maschinenlesbare Einzelkriterien: `test-evidence/acceptance-status.json` (lokal erzeugter, nicht versionierter Nachweis; siehe [Hinweise](test-evidence/README.md))
 
 | Kriterium | Vorgabe | Status | Nachweis / offene Abweichung |
 |---|---|---|---|
@@ -128,3 +128,9 @@ Die gezielt nachgewiesenen Kriterien stehen unten. Insbesondere LAN-/Offline-Net
 ## Ergänzender scoped Nachweis, 2026-11-11
 
 Kontextregeln und Prozesspolicy mit 168 Backend- und 8 Browser-/API-Tests geprüft; aktuelle Selbstanalyse COMPLETED. Dies ändert keine vollständige Kriterienbewertung der älteren Tabelle. releaseReady bleibt false. [Selbstprüfungsbericht](SELF_REVIEW_2026-11-11.md)
+
+## Scoped Konfigurationsprüfung, 2026-11-12
+Große Imports: Compose-Konfiguration validiert; 14 gezielte Download-/Malwaretests
+bestanden. Lokales Profil 1 GiB Archiv/3 GiB entpackt. Docker meldet ca. 7,2 GiB RAM;
+Auslastung am maximalen Profil nicht nachgewiesen. Kein Großrepository-End-to-End-PASS,
+keine Änderung der vollständigen Kriterienbewertung oder von releaseReady.

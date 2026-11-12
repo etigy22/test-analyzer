@@ -159,3 +159,9 @@ Vor jeder inhaltlichen Bearbeitung einer neuen projektbezogenen Nutzernachricht 
 ## Umsetzung des Fixplans und Selbstprüfung, 2026-11-11
 
 Umgesetzt: SQL-/Secret-Kontext, Trennung inerter Daten von ausführbaren Mustern, zentrale Scanner-Startpolicy, positive/negative Umgehungs-Gegenproben sowie Selbstscan desselben und des aktuellen Inputs. 168 Backend- und 8 Browser-/API-Tests PASS. Übrige Produktabnahme bleibt offen. [Selbstprüfungsbericht](docs/SELF_REVIEW_2026-11-11.md)
+
+## Anpassung für große Imports, 2026-11-12
+Umgesetzt: lokales Profil mit 1 GiB Archiv/3 GiB entpackt, 100.000 Einträgen,
+verlängerten Fristen und konfigurierbaren RAM-/tmpfs-Kapazitäten; Proxy-Uploadgrenze
+angehoben; Malware-Vorscan verwendet ImportLimits. Gezielte Tests siehe TEST_REPORT.md.
+Offen: vollständiger Großrepository-Durchlauf und RAM-Auslegung auf dem Zielhost.

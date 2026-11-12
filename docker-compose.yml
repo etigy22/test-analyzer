@@ -59,10 +59,10 @@ services:
       updater: {condition: service_healthy}
     tmpfs:
       - /tmp:noexec,nosuid,nodev,size=256m,uid=10001,gid=10001,mode=0700
-      - /app/var/quarantine:noexec,nosuid,nodev,size=256m,uid=10001,gid=10001,mode=0700
+      - /app/var/quarantine:noexec,nosuid,nodev,size=${REPOGUARD_QUARANTINE_SIZE:-256m},uid=10001,gid=10001,mode=0700
       - /app/var/work:noexec,nosuid,nodev,size=16m,uid=10001,gid=10001,mode=0700
     networks: [web, database, scanning, updating]
-    mem_limit: 768m
+    mem_limit: 2g
     cpus: 1.5
     healthcheck:
       test: [CMD, curl, -fsS, http://localhost:8080/api/health]
@@ -80,9 +80,9 @@ services:
     volumes: [repoguard-signatures:/signatures:ro, repoguard-scanner-cache:/scanner-cache]
     tmpfs:
       - /tmp:noexec,nosuid,nodev,size=64m,uid=10001,gid=10001,mode=0700
-      - /app/var/work:noexec,nosuid,nodev,size=768m,uid=10001,gid=10001,mode=0700
+      - /app/var/work:noexec,nosuid,nodev,size=${REPOGUARD_WORK_SIZE:-768m},uid=10001,gid=10001,mode=0700
     networks: [scanning]
-    mem_limit: 2g
+    mem_limit: 8g
     cpus: 2.0
     healthcheck:
       test: [CMD, curl, -fsS, http://localhost:8080/internal/health]

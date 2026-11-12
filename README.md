@@ -87,3 +87,17 @@ Nutzeraufträge stehen im [Projekt-Promptprotokoll](PROMPTS.md). Neue projektbez
 ### Generated test artifacts
 
 Detailed scan evidence under `docs/test-evidence/` is local-only and ignored by Git, alongside backend build reports and frontend test artifacts. Commit the concise `TEST_REPORT.md`, `test-results.json` and acceptance/review summaries. References to raw evidence in those summaries are local paths; a fresh checkout may not contain them. See [local evidence policy](docs/test-evidence/README.md) for regeneration and separate sharing.
+
+### Größere Repositories (lokales Profil, 2026-11-12)
+Die lokale `.env` verwendet jetzt 1 GiB Archiv, 3 GiB entpackte Daten, 100.000 Einträge,
+10 Minuten Download/Malware-Vorscan und 30 Minuten Scanfrist. ZIP-Uploads sind bis zum
+Archivlimit möglich; Proxy und Multipart-Limit enthalten zusätzlichen Platz für Multipart-Header.
+Der Malware-Vorscan übernimmt Größen-, Datei- und Tiefenlimits aus der Importkonfiguration.
+Er bleibt verpflichtend und blockiert bei Fehlern oder überschrittenen Scannerlimits.
+
+Für dieses Profil: `REPOGUARD_QUARANTINE_SIZE=1280m`, `REPOGUARD_WORK_SIZE=5g`,
+RAM-Limits im Compose: API `2g`, Worker `8g`. tmpfs belegt RAM nach Bedarf;
+Docker sollte für dieses Profil mindestens 14 GiB RAM zur Verfügung haben. Die bisherigen
+tmpfs-Standardwerte gelten weiterhin, wenn diese Variablen nicht gesetzt sind. RAM-Limits werden direkt über `mem_limit` in `docker-compose.yml` angepasst. Einzeldatei-,
+Kompressions- und Befundlimits bleiben bestehen; größere Repos können weiterhin PARTIAL ergeben.
+Nach Änderungen: `docker compose up -d --build`. Frühere fehlgeschlagene Analysen erneut starten.
